@@ -34,9 +34,7 @@ function initializeMap() {
             mapTypeId: google.maps.MapTypeId.ROADMAP
         };
         map = new google.maps.Map(mapCanvas, mapOptions);
-        marker = new google.maps.Marker({position: location, map: map, title: "You are here!"});
-         marker = new google.maps.Marker({position: location, map: map, title: "You are here!"});
-        
+        marker = new google.maps.Marker({position: location, map: map, title: "You are here!"}); 
     }
     
     //location =  new google.maps.LatLng(44.5403, -78.5463);
@@ -52,13 +50,10 @@ function initializeMap() {
 }
 
 
-var app = angular.module('App', ['ngRoute']);
+var app = angular.module('App', []);
 
-app.config(function ($routeProvider) {
 
-});
-
-var SensorControllers = app.controller("SensorControllers", function ($scope) {
+app.controller("SensorControllers", function ($scope) {
     "use strict";
     $scope.Temperatura = 11.56;
     $scope.Altitud = 1550;

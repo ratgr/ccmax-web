@@ -1,0 +1,75 @@
+
+.sidebar {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    top:0;
+}
+
+
+
+
+.sidebar-btn {
+    border: none;
+    border-radius: 0;
+}
+
+.sidebar-btn {
+    width: 100%;
+    padding: 10px;
+    background: transparent;
+    color: black;
+    
+    border-bottom: #8d8d8d; 
+    border-bottom-width: 1px;
+    border-bottom-style: ridge;
+  
+}
+input:focus {outline: none; }
+
+.line-input{
+    border: none;
+    border-radius: 0;
+}
+
+.line-input{
+    border-bottom: #8d8d8d; 
+    border-bottom-width: 1px;
+    border-bottom-style: ridge;
+}
+
+.calle-input {
+    width: 40%;
+    min-width: 300px;
+}
+.din-input {
+    width: 25vw;
+    min-width: 300px;
+}
+
+.callenum-input {
+     min-width: 100px;
+}
+
+.group {
+    white-space: nowrap
+}
+
+.fullInput {
+    width: 90%
+}
+
+.row {
+    margin-top: 10
+}
+
+.Segment {
+    padding-left: 40px;
+    padding-bottom: 20px;
+    border-bottom:  #8d8d8d;
+    border-bottom-width: 2px;
+    border-bottom-style: ridge;
+    border-right: #8d8d8d;
+    border-right-width: 2px;
+    border-right-style: ridge;
+}
