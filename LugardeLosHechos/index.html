@@ -3,6 +3,13 @@
         <link rel="stylesheet" href="../lib/bootstrap/css/bootstrap.css">
         <script src="../lib/angular/angular.min.js"></script>
         <script src="../lib/ui-bootstrap.min.js"></script>
+        <script scr="../lib/jquery/jquery-2.1.4.min.js"></script>
+        <script src="https://maps.googleapis.com/maps/api/js"></script>
+        <script type="text/javascript">
+            $(document).ready(function(){
+                window.alert("Hello, World!");
+            });
+        </script>
         <link rel="stylesheet" href="Lugar.css">
         <script src="Lugar.js"></script>
     </head>
@@ -10,20 +17,25 @@
         <div class="sidebar col-xs-3 col-lg-2">
             <a href="#General" class="sidebar-btn btn">General</a>
             <a href="#Estado" class="sidebar-btn btn">Estado</a>
-            <a class="sidebar-btn btn">Acordonamiento</a>
+            <a href="#Acordonamiento" class="sidebar-btn btn">Acordonamiento</a>
+            <a href="#Victimas" class="sidebar-btn btn">Victimas</a>
+            <a href="#Detenidos" class="sidebar-btn btn">Detenidos</a>
+            <a href="#Testigos" class="sidebar-btn btn">Testigos</a>
+            <a href="#Servidores" class="sidebar-btn btn">Servidores publicos</a>
+            <a href="#Vehiculos" class="sidebar-btn btn">Vehiculos</a>
         </div>
-        <div class="col-xs-9 col-xs-offset-3">
+        <div class="col-xs-9 col-lg-10 col-xs-offset-3 col-lg-offset-2">
             <div id="General" class="Segment">
                 <h2>General</h2>
-                <div  class="row">
-                    <span class="group">Calle: <input class="line-input calle-input" type="text"></input></span>
-                    <span class="group">No Aprox: <input class="line-input callenum-input" type="text"></input></span>
+                <div  class="row Col">
+                    <span class="group">Calle: <input class="line-input calle-input" id="calle-in" type="text"></input></span>
+                    <span class="group">No Aprox: <input class="line-input callenum-input" id="numero-in" type="text"></input></span>
                 </div >  
-                <div  class="row">
-                    <span class="group">Colonia: <input class="line-input calle-input" type="text"></input></span>
-                    <span class="group">CodigoPostal: <input class="line-input callenum-input" type="text"></input></span>
+                <div  class="row Col">
+                    <span class="group">Colonia: <input class="line-input calle-input" id="colonia-in" type="text"></input></span>
+                    <span class="group">CodigoPostal: <input class="line-input callenum-input" id="zip-in" type="text"></input></span>
                 </div>
-                <div  class="row">
+                <div  class="row Col">
                     <span class="group">Entre Calles: <input class="line-input calle-input" type="text"></input></span>
                     <span class="group">y <input class="line-input calle-input" type="text"></input></span>
                 </div>
@@ -41,7 +53,7 @@
                     <div class="col-xs-6">Observaciones: <input class="line-input din-input" type="text"></div>
                 </div> 
                 <div class="row">
-                    <span class="col-xs-6 col-sm-4 col-md-2 ">Fotografia o Video </span>
+                    <span class="col-xs-6 col-sm-4 col-md-2">Fotografia o Video </span>
                     <div class="col-xs-2 col-lg-1">
                         <input type="radio">Si</input>
                     </div>
@@ -61,25 +73,29 @@
                     <div class="col-xs-6">Observaciones: <input class="line-input din-input" type="text"></div>
                 </div>
                 <div class="row">
-                    Informacion Obtenida en el Lugar de los Hechos:
+                    <span class="col-xs-6">Información Obtenida en el Lugar de los Hechos:</span>
                     <input class="line-input fullInput" type="text">
                  </div>
             </div>
-            <div id="Acordonamiento">
-                <h2>Acordonamiento</h2>
-                
-                Pariatur concursionibus hic aliquip, eu ita imitarentur, ad ne velit mandaremus, 
-                doctrina qui veniam, sunt officia cernantur ut singulis eruditionem id fabulas 
-                in ubi cillum nulla cillum offendit, varias tempor hic senserit. Dolore 
-                cupidatat praesentibus, do quid comprehenderit aut multos laboris an eiusmod te 
-                doctrina adipisicing non aliquip, excepteur aliqua lorem si varias iis non quae 
-                incurreret litteris, et aliqua ita elit si dolor offendit sed instituendarum. 
-                Incurreret veniam commodo, quem occaecat ut adipisicing. Cernantur dolor iudicem 
-                pariatur. Aut fore eu irure et eram praesentibus ingeniis quae offendit in legam 
-                se ubi cillum voluptate, multos iis ab magna incididunt. Nam ipsum mentitum 
-                arbitrantur, ubi fugiat nisi id incididunt, summis eiusmod offendit, summis 
-                quibusdam litteris.
+            <div id="Victimas" class="Segment">
+                <h2>Victimas</h2>
             </div>
+              <div id="Detenidos" class="Segment">
+                <h2>Detenidos</h2>
+            </div>
+            <div id="Testigos" class="Segment">
+                <h2>Testigos</h2>
+            </div>
+            <div id="Servidores" class="Segment">
+                <h2>Servidores</h2>
+            </div>
+            <div id="Vehiculos" class="Segment">
+                <h2>Vehiculos</h2>
+            </div>
+            <div id="Acordonamiento" class="Segment">
+                <h2>Acordonamiento</h2>
+            </div>
+
         </div>
     </body>
 </html>

@@ -63,6 +63,10 @@ input:focus {outline: none; }
     margin-top: 10
 }
 
+.col{
+    padding-left: 15
+}
+
 .Segment {
     padding-left: 40px;
     padding-bottom: 20px;
@@ -73,3 +77,5 @@ input:focus {outline: none; }
     border-right-width: 2px;
     border-right-style: ridge;
 }
+
+

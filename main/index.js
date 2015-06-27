@@ -19,7 +19,7 @@ function showError(error) {
     window.alert("An unknown error occurred.");
       
 }
-    
+
 function initializeMap() {
     "use strict";
     var mapCanvas, mapOptions, map, location, marker;
@@ -39,14 +39,9 @@ function initializeMap() {
     
     //location =  new google.maps.LatLng(44.5403, -78.5463);
    //try to get location
-    if (navigator.geolocation) {
-       
+    if (navigator.geolocation) {  
         navigator.geolocation.getCurrentPosition(fixlocation, showError);
     }
-    
-    
-    
-   
 }
 
 
