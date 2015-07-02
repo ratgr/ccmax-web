@@ -1,4 +1,5 @@
 /*global angular*/
+
 (function () {
     
     "use strict";
@@ -60,7 +61,6 @@
     });
     
     app.controller("modificarVehiculo", function ($scope, $routeParams, VehiculeService) {
-        //window.alert("Alerta!!" + $routeParams.id);
         $scope.id = $routeParams.id;
         $scope.Vehiculo = VehiculeService.vehiculos[$scope.id];
     });
