@@ -6,12 +6,13 @@
 
     app.config(function ($routeProvider) {
         $routeProvider
-            .when("/", {templateUrl: 'main/index.html'})
+            .when("/", {templateUrl: 'partials/Main.html'})
             .when("/Lugar", {templateUrl: 'partials/Lugar.html'})
             .when("/Vehiculo/:id", {
                 templateUrl: 'partials/Vehiculo.html',
                 controller: "modificarVehiculo"
-            }).when("/Vehiculo/", {
+            })
+            .when("/Vehiculo/", {
                 templateUrl: 'partials/Vehiculo.html'
                // controller: "AgregarVehiculo"
             });
@@ -26,17 +27,21 @@
         $rootScope.Lugar = "#/Lugar";
     });
     
+    
     app.factory('VehiculeService', function () {
-        var returnService;
+        var vehiculos, returnService;
         
-        returnService = {};
-        
-        returnService.vehiculos = [
+        vehiculos = [
             {placa: "HGZ-43453", marca: "Chevy", tipo: "Auto Chico", color: "rojo", ano: 1993},
             {placa: "HGZ-43453", color: "verde"},
             {placa: "HGZ-43453"},
             {placa: "HGZ-43453"}
         ];
+        
+        returnService = {};
+        
+        returnService.vehiculos = vehiculos;
+        
         
         return returnService;
         
@@ -59,6 +64,8 @@
         $scope.id = $routeParams.id;
         $scope.Vehiculo = VehiculeService.vehiculos[$scope.id];
     });
+    
+  //  app.controller("AgregarVehiculos", function ($scope)
 
 
 }());
