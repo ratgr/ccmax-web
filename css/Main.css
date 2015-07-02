@@ -1,0 +1,47 @@
+
+#map-canvas {
+    width: 60vw;
+    height: 40vw;
+}
+.cntr-btn {
+    margin-top: 20px;
+}
+
+.btncontainer {
+    margin: 30px
+}
+
+.bottom-right {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+}
+
+#mapContainer {
+    margin: 30px;
+}
+
+.btn-row {
+    margin-top: 10px;
+}
+
+.btnPrincipal {
+    width: 90%;
+    margin-top: 20px;
+    color: black;
+    background: #ebe7e7;
+}
+
+.cnfg {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+}
+
+.calle-input {
+    
+}
+
+.line-input {
+    
+}

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html ng-app="App">
+    <head>
+        <link rel="stylesheet" href="Lugar.css">
+        <link rel="stylesheet" href="../lib/bootstrap/css/bootstrap.css"> 
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+        <script src="https://maps.googleapis.com/maps/api/js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+        <script src="Lugar.js"></script>
+    </head>
+    <body>
+        <div class="sidebar col-xs-3 col-lg-2">
+            <a href="{{Lugar}}#General" class="sidebar-btn btn">General</a>
+            <a href="{{Lugar}}#Estado" class="sidebar-btn btn">Estado</a>
+            <a href="{{Lugar}}#Vehiculos" class="sidebar-btn btn">Vehiculos</a>
+        </div>
+        <div class="col-xs-9 col-lg-10 col-lg-offset-2 col-xs-offset-3">
+            <div id="General" class="Segment">
+                <h2>General</h2>
+                <div  class="row Col">
+                    <span class="group">Calle: <input class="line-input calle-input" id="calle-in" type="text"></input></span>
+                    <span class="group">No Aprox: <input class="line-input callenum-input" id="numero-in" type="text"></input></span>
+                </div >  
+                <div  class="row Col">
+                    <span class="group">Colonia: <input class="line-input calle-input" id="colonia-in" type="text"></input></span>
+                    <span class="group">CodigoPostal: <input class="line-input callenum-input" id="zip-in" type="text"></input></span>
+                </div>
+                <div  class="row Col">
+                    <span class="group">Entre Calles: <input class="line-input calle-input" type="text"></input></span>
+                    <span class="group">y <input class="line-input calle-input" type="text"></input></span>
+                </div>
+            </div>
+            <div id="Estado" class="Segment">
+                <h2>Estado</h2>
+                <div class="row">
+                    <span class="col-xs-6 col-sm-4 col-md-2 ">Acordonamiento: </span>
+                    <div class="col-xs-2 col-lg-1">
+                        <input type="radio">Si</input>
+                    </div>
+                    <div class="col-xs-2 col-lg-1">
+                        <input type="radio">No</input>
+                    </div>
+                    <div class="col-xs-6">Observaciones: <input class="line-input din-input" type="text"></div>
+                </div> 
+                <div class="row">
+                    <span class="col-xs-6 col-sm-4 col-md-2">Fotografia o Video </span>
+                    <div class="col-xs-2 col-lg-1">
+                        <input type="radio">Si</input>
+                    </div>
+                    <div class="col-xs-2 col-lg-1">
+                        <input type="radio">No</input>
+                    </div>
+                    <div class="col-xs-6">Observaciones: <input class="line-input din-input" type="text"></div>
+                </div>
+                <div class="row">
+                    <span class="col-xs-6 col-sm-4 col-md-2 ">Alteracion del Lugar </span>
+                    <div class="col-xs-2 col-lg-1">
+                        <input type="radio">Si</input>
+                    </div>
+                    <div class="col-xs-2 col-lg-1">
+                        <input type="radio">No</input>
+                    </div>
+                    <div class="col-xs-6">Observaciones: <input class="line-input din-input" type="text"></div>
+                </div>
+                <div class="row">
+                    <span class="col-xs-6">Información Obtenida en el Lugar de los Hechos:</span>
+                    <input class="line-input fullInput" type="text">
+                 </div>
+            </div>
+<<<<<<< HEAD:LugardeLosHechos/index.html
+            <div id="Victimas" class="Segment">
+                <h2>Victimas</h2>
+            </div>
+              <div id="Detenidos" class="Segment">
+                <h2>Detenidos</h2>
+            </div>
+            <div id="Testigos" class="Segment">
+                <h2>Testigos</h2>
+            </div>
+            <div id="Servidores" class="Segment">
+                <h2>Servidores</h2>
+            </div>
+            <div id="Vehiculos" class="Segment">
+                <h2>Vehiculos</h2>
+=======
+            <div id="Vehiculos" class="Segment ">
+                <h2>Vehiculos</h2>
+                <div ng-controller="VehiculeControl">
+                    <div class="row list-margin">
+                        <a href="#/Vehiculo/{{$index}}" class="vehiculo-div btn" ng-repeat="vehiculo in Vehiculos">
+                            <div class="vehi-image-container"></div>
+                            <div>Marca: {{vehiculo.marca}}</div>
+                            <div>Tipo: {{vehiculo.tipo}}</div>
+                            <div>Color: {{vehiculo.color}}</div>
+                            <div>A&ntilde;o: {{vehiculo.ano}}</div>
+                            <div>Placa: {{vehiculo.placa}}</div>
+                        </a>
+                        <a href="#/Vehiculo/" class="vehiculo-div btn">
+                            <span class="btn-plus glyphicon glyphicon-plus"></span>
+                        </a>
+                       
+                    </div>
+                    
+                </div>
+>>>>>>> 46a10ee70d57063d44d0f7cff08d9af6222121d6:partials/Lugar.html
+            </div>
+        </div>
+
+
+        <script src="../lib/angular/angular.min.js"></script>
+        <script src="../lib/bootstrap/js/bootstrap.min.js"/>
+      <script src="../lib/ui-bootstrap.min.js"></script>
+<!--   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+ 
+        <script src="https://maps.googleapis.com/maps/api/js"></script>
+        <script src="../lib/angular/angular.min.js"></script>
+        <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="Lugar.js"></script>
+        <script src="../lib/bootstrap/js/bootstrap.min.js"/>
+        <script src="../lib/ui-bootstrap.min.js"></script>-->
+    </body>
+</html>
