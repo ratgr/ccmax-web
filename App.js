@@ -46,6 +46,12 @@
         returnService.add = function () {
             vehiculos[vehiculos.length] = {};
         };
+        
+        
+        returnService.remove = function (index) {
+            vehiculos.splice(index,1);
+        }
+        
         return returnService;
         
     });
@@ -70,6 +76,10 @@
         $scope.add = function () {
             $scope.selected = VehiculeService.vehiculos.length;
             VehiculeService.add();
+        };
+        
+        $scope.remove = function (index) {
+            VehiculeService.remove(index);
         };
         
     });

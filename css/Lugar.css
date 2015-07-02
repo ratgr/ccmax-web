@@ -115,5 +115,9 @@ input:focus {outline: none; }
 }
 
 .close-btn {
-
+    color: darkgrey;
+    background: transparent;
+    margin-top: -25px;
+    margin-left: 150px;
+    width: 10;
 }

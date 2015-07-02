@@ -1,12 +1,5 @@
 <html ng-app="App">
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link href="../blib/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
-        <link href="../Lugar/Lugar.css"  rel="stylesheet">
-        <script src="../blib/angular/angular.js"></script>
-        <script src="../blib/angular-route/angular-route.js"></script>
-        <script src="../App.js"></script>
-    </head>
+
     <body>
         <div class="sidebar col-xs-3 col-lg-2">
             <a href="{{Lugar}}#General" class="sidebar-btn btn">General</a>
@@ -69,15 +62,17 @@
             <div id="Vehiculos" class="Segment">
                 <h2>Vehiculos</h2>
                 <div ng-controller="VehiculeControl">
-                    {{selected}}
-                    <div class="row">Placa: <input class="line-input" ng-model="Vehiculos[selected].placa"></input></div>
-                    <div class="row">Marca: <input class="line-input" ng-model="Vehiculos[selected].marca"></input></div>
-                    <div class="row">Tipo: <input class="line-input"  ng-model="Vehiculos[selected].tipo"></input></div>
-                    <div class="row">Color: <input class="line-input" ng-model="Vehiculos[selected].color"></input></div>
-                    <div class="row">Año: <input class="line-input" ng-model="Vehiculos[selected].ano"></input></div>
+                    <div class="row">
+                        Marca: <input class="line-input" ng-model="Vehiculos[selected].marca"></input>
+                        Tipo: <input class="line-input"  ng-model="Vehiculos[selected].tipo"></input></div>
+                    <div class="row">
+                        Placa: <input class="line-input" ng-model="Vehiculos[selected].placa"></input>
+                        Color: <input class="line-input" ng-model="Vehiculos[selected].color"></input>
+                        Año: <input class="line-input" ng-model="Vehiculos[selected].ano"></input>
+                    </div>
                     <div class="row list-margin">
                         <a ng-click="select($index)" class="vehiculo-div btn" ng-repeat="vehiculo in Vehiculos">
-                            <button>x</button>
+                            <button ng-click="remove($index)" class="close-btn btn"><span class="glyphicon glyphicon-remove"></span></button>
                             <div class="vehi-image-container"></div>
                             <div>Marca: {{vehiculo.marca}}</div>
                             <div>Tipo: {{vehiculo.tipo}}</div>
