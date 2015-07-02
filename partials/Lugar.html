@@ -81,7 +81,7 @@
                     <div class="row">Año: <input class="line-input" ng-model="Vehiculos[selected].ano"></input></div>
                     <div class="row list-margin">
                         <a ng-click="select($index)" class="vehiculo-div btn" ng-repeat="vehiculo in Vehiculos">
-                            <button>x</button>
+                            <button ng-click="remove($index)" class="close-btn btn"><span class="glyphicon glyphicon-remove"></span></button>
                             <div class="vehi-image-container"></div>
                             <div>Marca: {{vehiculo.marca}}</div>
                             <div>Tipo: {{vehiculo.tipo}}</div>
