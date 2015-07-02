@@ -1,21 +1,20 @@
 <!DOCTYPE html>
 <html ng-app="App">
     <header>
-        <link rel="stylesheet" href="../lib/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../blib/bootstrap/dist/css/bootstrap.css">
        
-        <script src="../lib/angular/angular.min.js"></script>
-        <script src="../lib/bootstrap/js/bootstrap.min.js"></script>
+        <script src="../blib/angular/angular.min.js"></script>
+        <script src="../blib/bootstrap/js/bootstrap.min.js"></script>
         <script src="https://maps.googleapis.com/maps/api/js"></script>
-        
-        <link rel="stylesheet" href="index.css">
+         <link rel="stylesheet" href="index.css">
         <script src="index.js"></script>
     </header>
     <body>
-        <div ng-view></div>
+       
         <div id="mapContainer" class="row">
             <div class="row">
                 <div id="map-canvas" class="col-sm-6 col-md-4 col-lg-4"></div>
-                <div class="col-sm-4" ng-controller="SensorControllers">
+                <div class="col-sm-4" ng-controller="SensorController">
                     <p>Temperatura: {{Temperatura}}°C</p>
                     <p>Altitud: {{Altitud}}m</p>
                     <p>Presion: {{Presion}}hpa</p>
@@ -25,7 +24,7 @@
             </div>
             <div class="row btn-row">
                 <div class="col-sm-3">
-                    <a href="../LugardeLosHechos/" class="btn btnPrincipal" >Lugar de los hechos </a>
+                    <a href="{{Lugar}}" class="btn btnPrincipal" >Lugar de los hechos </a>
                 </div>
                 <div class="col-sm-3">
                      <Button class=" btn btnPrincipal">Indicios </Button>

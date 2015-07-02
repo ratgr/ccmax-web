@@ -1,0 +1,25 @@
+<html ng-app="App">
+    <head>
+        <link rel="stylesheet" href="../blib/bootstrap/dist/css/bootstrap.css">
+        <script src="../blib/angular/angular.min.js"></script>
+        <script src="../blib/angular-route/angular-route.min.js"></script>
+        <link rel="stylesheet" href="../style.css">
+        <script src="../App.js"></script>
+    </head>
+    <body>
+        <div class="sidebar col-xs-2">
+            <div ng-repeat="x in [1,2,3,4,5,6,7,8]">
+                <a class="btn sidebar-btn" href="#/#anchor{{x}}">anchor{{x}}</a>
+            </div>
+        </div>
+        <div class="col-xs-offset-2 col-xs-10">
+            <div id="anchor{{x}}" class="anchor" ng-repeat="x in [1,2,3,4,5,6,7,8]" >
+                  Anchor {{x}}
+            </div>
+        </div>
+    </body>
+</html>
+
+
+
+

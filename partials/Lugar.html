@@ -1,0 +1,90 @@
+<html ng-app="App">
+    <head>
+        <link href="../blib/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+        <link href="../Lugar/Lugar.css"  rel="stylesheet">
+        <script src="../blib/angular/angular.js"></script>
+        <script src="../blib/angular-route/angular-route.js"></script>
+        <script src="../App.js"></script>
+    </head>
+    <body>
+        <div class="sidebar col-xs-3 col-lg-2">
+            <a href="{{Lugar}}#General" class="sidebar-btn btn">General</a>
+            <a href="{{Lugar}}#Estado" class="sidebar-btn btn">Estado</a>
+            <a href="{{Lugar}}#Vehiculos" class="sidebar-btn btn">Vehiculos</a>
+        </div>
+        <div class="col-xs-9 col-lg-10 col-lg-offset-2 col-xs-offset-3">
+            <div id="General" class="Segment">
+                <h2>General</h2>
+                <div  class="row">
+                    <span class="group">Calle: <input class="line-input calle-input" type="text"></input></span>
+                    <span class="group">No Aprox: <input class="line-input callenum-input" type="text"></input></span>
+                </div >  
+                <div  class="row">
+                    <span class="group">Colonia: <input class="line-input calle-input" type="text"></input></span>
+                    <span class="group">CodigoPostal: <input class="line-input callenum-input" type="text"></input></span>
+                </div>
+                <div  class="row">
+                    <span class="group">Entre Calles: <input class="line-input calle-input" type="text"></input></span>
+                    <span class="group">y <input class="line-input calle-input" type="text"></input></span>
+                </div>
+            </div>
+            <div id="Estado" class="Segment">
+                <h2>Estado</h2>
+                <div class="row">
+                    <span class="col-xs-6 col-sm-4 col-md-2 ">Acordonamiento: </span>
+                    <div class="col-xs-2 col-lg-1">
+                        <input type="radio">Si</input>
+                    </div>
+                    <div class="col-xs-2 col-lg-1">
+                        <input type="radio">No</input>
+                    </div>
+                    <div class="col-xs-6">Observaciones: <input class="line-input din-input" type="text"></div>
+                </div> 
+                <div class="row">
+                    <span class="col-xs-6 col-sm-4 col-md-2 ">Fotografia o Video </span>
+                    <div class="col-xs-2 col-lg-1">
+                        <input type="radio">Si</input>
+                    </div>
+                    <div class="col-xs-2 col-lg-1">
+                        <input type="radio">No</input>
+                    </div>
+                    <div class="col-xs-6">Observaciones: <input class="line-input din-input" type="text"></div>
+                </div>
+                <div class="row">
+                    <span class="col-xs-6 col-sm-4 col-md-2 ">Alteracion del Lugar </span>
+                    <div class="col-xs-2 col-lg-1">
+                        <input type="radio">Si</input>
+                    </div>
+                    <div class="col-xs-2 col-lg-1">
+                        <input type="radio">No</input>
+                    </div>
+                    <div class="col-xs-6">Observaciones: <input class="line-input din-input" type="text"></div>
+                </div>
+                <div class="row">
+                    Informacion Obtenida en el Lugar de los Hechos:
+                    <input class="line-input fullInput" type="text">
+                 </div>
+            </div>
+            <div id="Vehiculos" class="Segment ">
+                <h2>Vehiculos</h2>
+                <div ng-controller="VehiculeControl">
+                    <div class="row list-margin">
+                        <a href="#/Vehiculo/{{$index}}" class="vehiculo-div btn" ng-repeat="vehiculo in Vehiculos">
+                            <div class="vehi-image-container"></div>
+                            <div>Marca: {{vehiculo.marca}}</div>
+                            <div>Tipo: {{vehiculo.tipo}}</div>
+                            <div>Color: {{vehiculo.color}}</div>
+                            <div>A&ntilde;o: {{vehiculo.ano}}</div>
+                            <div>Placa: {{vehiculo.placa}}</div>
+                        </a>
+                        <a href="#/Vehiculo/" class="vehiculo-div btn">
+                            <span class="btn-plus glyphicon glyphicon-plus"></span>
+                        </a>
+                       
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

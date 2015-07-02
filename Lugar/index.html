@@ -1,0 +1,84 @@
+<html ng-app="App">
+    <head>
+        <link rel="stylesheet" href="../lib/bootstrap/css/bootstrap.css">
+        <script src="../lib/angular/angular.min.js"></script>
+        <script src="../lib/ui-bootstrap.min.js"></script>
+        <link rel="stylesheet" href="Lugar.css">
+        <script src="Lugar.js"></script>
+    </head>
+    <body>
+        <div class="sidebar col-xs-3 col-lg-2">
+            <a href="{{Lugar}}#General" class="sidebar-btn btn">General</a>
+            <a href="{{Lugar}}#Estado" class="sidebar-btn btn">Estado</a>
+            <a href="{{Lugar}}#Vehiculos" class="sidebar-btn btn">Vehiculos</a>
+        </div>
+        <div class="col-xs-9 col-lg-10 col-lg-offset-2 col-xs-offset-3">
+            <div id="General" class="Segment">
+                <h2>General</h2>
+                <div  class="row">
+                    <span class="group">Calle: <input class="line-input calle-input" type="text"></input></span>
+                    <span class="group">No Aprox: <input class="line-input callenum-input" type="text"></input></span>
+                </div >  
+                <div  class="row">
+                    <span class="group">Colonia: <input class="line-input calle-input" type="text"></input></span>
+                    <span class="group">CodigoPostal: <input class="line-input callenum-input" type="text"></input></span>
+                </div>
+                <div  class="row">
+                    <span class="group">Entre Calles: <input class="line-input calle-input" type="text"></input></span>
+                    <span class="group">y <input class="line-input calle-input" type="text"></input></span>
+                </div>
+            </div>
+            <div id="Estado" class="Segment">
+                <h2>Estado</h2>
+                <div class="row">
+                    <span class="col-xs-6 col-sm-4 col-md-2 ">Acordonamiento: </span>
+                    <div class="col-xs-2 col-lg-1">
+                        <input type="radio">Si</input>
+                    </div>
+                    <div class="col-xs-2 col-lg-1">
+                        <input type="radio">No</input>
+                    </div>
+                    <div class="col-xs-6">Observaciones: <input class="line-input din-input" type="text"></div>
+                </div> 
+                <div class="row">
+                    <span class="col-xs-6 col-sm-4 col-md-2 ">Fotografia o Video </span>
+                    <div class="col-xs-2 col-lg-1">
+                        <input type="radio">Si</input>
+                    </div>
+                    <div class="col-xs-2 col-lg-1">
+                        <input type="radio">No</input>
+                    </div>
+                    <div class="col-xs-6">Observaciones: <input class="line-input din-input" type="text"></div>
+                </div>
+                <div class="row">
+                    <span class="col-xs-6 col-sm-4 col-md-2 ">Alteracion del Lugar </span>
+                    <div class="col-xs-2 col-lg-1">
+                        <input type="radio">Si</input>
+                    </div>
+                    <div class="col-xs-2 col-lg-1">
+                        <input type="radio">No</input>
+                    </div>
+                    <div class="col-xs-6">Observaciones: <input class="line-input din-input" type="text"></div>
+                </div>
+                <div class="row">
+                    Informacion Obtenida en el Lugar de los Hechos:
+                    <input class="line-input fullInput" type="text">
+                 </div>
+            </div>
+            <div id="Vehiculos" class="Segment">
+                <h2>Vehiculos</h2>
+                <div ng-controller="VehiculeControl">
+                    <div class="row">
+                        <div class="col-xs-3" ng-repeat="vehiculo in Vehiculos">
+                            <div class="vehiculo-div">
+                                
+                                Placa: {{vehiculo.placa}}
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

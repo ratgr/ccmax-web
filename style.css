@@ -1,0 +1,29 @@
+.anchor {
+  border: 2px dashed DarkOrchid;
+  padding: 10px 10px 200px 10px;
+}
+
+.sidebar {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    top:0;
+}
+
+.sidebar-btn {
+    border: none;
+    border-radius: 0;
+}
+
+.sidebar-btn {
+    width: 100%;
+    padding: 10px;
+    background: transparent;
+    color: black;
+    
+    border-bottom: #8d8d8d; 
+    border-bottom-width: 1px;
+    border-bottom-style: ridge;
+  
+}
+

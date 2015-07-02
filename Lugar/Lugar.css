@@ -1,0 +1,115 @@
+
+.sidebar {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    top:0;
+}
+
+.sidebar-btn {
+    border: none;
+    border-radius: 0;
+}
+
+.sidebar-btn {
+    width: 100%;
+    padding: 10px;
+    background: transparent;
+    color: black;
+    
+    border-bottom: #8d8d8d; 
+    border-bottom-width: 1px;
+    border-bottom-style: ridge;
+  
+}
+input:focus {outline: none; }
+
+.line-input{
+    border: none;
+    border-radius: 0;
+}
+
+.line-input{
+    border-bottom: #8d8d8d; 
+    border-bottom-width: 1px;
+    border-bottom-style: ridge;
+}
+
+.calle-input {
+    width: 40%;
+    min-width: 300px;
+}
+.din-input {
+    width: 25vw;
+    min-width: 300px;
+}
+
+.callenum-input {
+     min-width: 100px;
+}
+
+.group {
+    white-space: nowrap
+}
+
+.fullInput {
+    width: 90%
+}
+
+.row {
+    margin-top: 10
+}
+
+.Segment {
+    padding-left: 40px;
+    padding-bottom: 20px;
+    border-bottom:  #8d8d8d;
+    border-bottom-width: 2px;
+    border-bottom-style: ridge;
+    border-right: #8d8d8d;
+    border-right-width: 2px;
+    border-right-style: ridge;
+}
+
+.vehiculo-div {
+    
+    width: 200px;
+    height: 250px;
+    margin: 20px;
+    color: black;
+    background: transparent;
+    padding: 20;
+    box-shadow: 0px 0px 15px 0px rgba(0,0,0,1);
+}
+
+.vehicle-image {
+    width: 120;
+    max-width: 100%; 
+    height: inherit;
+}
+
+.list-margin {
+    margin-right: 10px;
+}
+
+.vehi-image-container {
+    width: 100%;
+    background-image:  url(../img/icono_vehiculo.png);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 110px;
+}
+
+.list-add {
+    margin-top: 30px;
+    height: 170px;
+    padding: 25px;
+}
+
+.btn-plus {
+    background: transparent;
+    font-size: 100px;
+    margin-top: 40px;
+    color: black;
+}
