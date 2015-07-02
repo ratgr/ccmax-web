@@ -75,66 +75,7 @@ input:focus {outline: none; }
     border-right-style: ridge;
 }
 
-<<<<<<< HEAD:LugardeLosHechos/Lugar.css
-/* Bootstrap Nav over ride */
 
-.navbar .nav {
-    
-    margin-left: 5px;
-    width: 100%;
-    margin: 0;
-    display: table;
-    width: 100%;
-}
-
-.navbar .nav > li {
-    padding: 0;
-    margin: 0;
-    
-    border-bottom: #8d8d8d; 
-    border-bottom-width: 1px;
-    border-bottom-style: ridge;
-}
-
-
-.navbar .nav > li > a {
-    padding: 10px;
-    color: black;
-    
-    width: 100%;
-}
-
-.navbar .nav .nav > lia {
-    padding-left: 30px;
-}
-
-.active > a {
-
-    font-weight: bold;
-    border-left: #8d8d8d; 
-    border-left-width: 2px;
-    border-left-style: ridge; 
-    
-}
-
-
-.navbar .nav ul.nav {
-   display: none;           
-}
-
-.navbar .nav>.active>ul.nav {
-    display:block
-}
-
-/* Autocomplete overide */
-
-.ui-autocomplete.ui-widget {
-  font-family: Verdana,Arial,sans-serif;
-  font-size: 12px;
-}
-
-
-=======
 .vehiculo-div {
     
     width: 200px;
@@ -177,4 +118,8 @@ input:focus {outline: none; }
     margin-top: 40px;
     color: black;
 }
->>>>>>> 46a10ee70d57063d44d0f7cff08d9af6222121d6:css/Lugar.css
+
+.close-btn {
+
+}
+

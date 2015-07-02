@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html ng-app="App">
     <head>
-        <link rel="stylesheet" href="Lugar.css">
-        <link rel="stylesheet" href="../lib/bootstrap/css/bootstrap.css"> 
-        <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+        <link rel="stylesheet" href="../lib/bootstrap/css/bootstrap.css"> >
         <script src="https://maps.googleapis.com/maps/api/js"></script>
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-        <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-        <script src="Lugar.js"></script>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link href="../Lugar/Lugar.css"  rel="stylesheet">
+        <script src="../blib/angular/angular.js"></script>
+        <script src="../blib/angular-route/angular-route.js"></script>
+        <script src="../App.js"></script>
     </head>
     <body>
         <div class="sidebar col-xs-3 col-lg-2">
@@ -68,36 +69,30 @@
                     <input class="line-input fullInput" type="text">
                  </div>
             </div>
-            <div id="Victimas" class="Segment">
-                <h2>Victimas</h2>
-            </div>
-            <div id="Detenidos" class="Segment">
-                <h2>Detenidos</h2>
-            </div>
-            <div id="Testigos" class="Segment">
-                <h2>Testigos</h2>
-            </div>
-            <div id="Servidores" class="Segment">
-                <h2>Servidores</h2>
-            </div>
+
             <div id="Vehiculos" class="Segment">
                 <h2>Vehiculos</h2>
-                <div id="Vehiculos" class="Segment ">
-                    <h2>Vehiculos</h2>
-                    <div ng-controller="VehiculeControl">
-                        <div class="row list-margin">
-                            <a href="#/Vehiculo/{{$index}}" class="vehiculo-div btn" ng-repeat="vehiculo in Vehiculos">
-                                <div class="vehi-image-container"></div>
-                                <div>Marca: {{vehiculo.marca}}</div>
-                                <div>Tipo: {{vehiculo.tipo}}</div>
-                                <div>Color: {{vehiculo.color}}</div>
-                                <div>A&ntilde;o: {{vehiculo.ano}}</div>
-                                <div>Placa: {{vehiculo.placa}}</div>
-                            </a>
-                            <a href="#/Vehiculo/" class="vehiculo-div btn">
-                                <span class="btn-plus glyphicon glyphicon-plus"></span>
-                            </a>
-                        </div>
+                <div ng-controller="VehiculeControl">
+                    {{selected}}
+                    <div class="row">Placa: <input class="line-input" ng-model="Vehiculos[selected].placa"></input></div>
+                    <div class="row">Marca: <input class="line-input" ng-model="Vehiculos[selected].marca"></input></div>
+                    <div class="row">Tipo: <input class="line-input"  ng-model="Vehiculos[selected].tipo"></input></div>
+                    <div class="row">Color: <input class="line-input" ng-model="Vehiculos[selected].color"></input></div>
+                    <div class="row">Año: <input class="line-input" ng-model="Vehiculos[selected].ano"></input></div>
+                    <div class="row list-margin">
+                        <a ng-click="select($index)" class="vehiculo-div btn" ng-repeat="vehiculo in Vehiculos">
+                            <button>x</button>
+                            <div class="vehi-image-container"></div>
+                            <div>Marca: {{vehiculo.marca}}</div>
+                            <div>Tipo: {{vehiculo.tipo}}</div>
+                            <div>Color: {{vehiculo.color}}</div>
+                            <div>Año: {{vehiculo.ano}}</div>
+                            <div>Placa: {{vehiculo.placa}}</div>
+                        </a>
+                        <a ng-click="add()"  class="vehiculo-div btn">
+                            <span class="btn-plus glyphicon glyphicon-plus"></span>
+                        </a>
+  
                     </div>
                 </div>
             </div>

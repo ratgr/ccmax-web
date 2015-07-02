@@ -28,9 +28,8 @@
         $rootScope.Lugar = "#/Lugar";
     });
     
-    
     app.factory('VehiculeService', function () {
-        var vehiculos, returnService;
+        var vehiculos, selectedIndex, selected, returnService;
         
         vehiculos = [
             {placa: "HGZ-43453", marca: "Chevy", tipo: "Auto Chico", color: "rojo", ano: 1993},
@@ -39,11 +38,15 @@
             {placa: "HGZ-43453"}
         ];
         
+        selected = 0;
+    
         returnService = {};
         
         returnService.vehiculos = vehiculos;
-        
-        
+        returnService.selected = selected;
+        returnService.add = function () {
+            vehiculos[vehiculos.length] = {};
+        };
         return returnService;
         
     });
@@ -58,6 +61,18 @@
     
     app.controller("VehiculeControl", function ($scope, VehiculeService) {
         $scope.Vehiculos = VehiculeService.vehiculos;
+        
+        $scope.selected = VehiculeService.selected;
+    
+        $scope.select = function (index) {
+            $scope.selected = index;
+        };
+        
+        $scope.add = function () {
+            $scope.selected = VehiculeService.vehiculos.length;
+            VehiculeService.add();
+        };
+        
     });
     
     app.controller("modificarVehiculo", function ($scope, $routeParams, VehiculeService) {
