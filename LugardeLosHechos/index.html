@@ -1,30 +1,29 @@
+<!DOCTYPE html>
 <html ng-app="App">
     <head>
-        <link rel="stylesheet" href="../lib/bootstrap/css/bootstrap.css">
-        <script src="../lib/angular/angular.min.js"></script>
-        <script src="../lib/ui-bootstrap.min.js"></script>
-        <script scr="../lib/jquery/jquery-2.1.4.min.js"></script>
-        <script src="https://maps.googleapis.com/maps/api/js"></script>
-        <script type="text/javascript">
-            $(document).ready(function(){
-                window.alert("Hello, World!");
-            });
-        </script>
         <link rel="stylesheet" href="Lugar.css">
+        <link rel="stylesheet" href="../lib/bootstrap/css/bootstrap.css"> 
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+        <script src="https://maps.googleapis.com/maps/api/js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
         <script src="Lugar.js"></script>
+       
     </head>
-    <body>
-        <div class="sidebar col-xs-3 col-lg-2">
-            <a href="#General" class="sidebar-btn btn">General</a>
-            <a href="#Estado" class="sidebar-btn btn">Estado</a>
-            <a href="#Acordonamiento" class="sidebar-btn btn">Acordonamiento</a>
-            <a href="#Victimas" class="sidebar-btn btn">Victimas</a>
-            <a href="#Detenidos" class="sidebar-btn btn">Detenidos</a>
-            <a href="#Testigos" class="sidebar-btn btn">Testigos</a>
-            <a href="#Servidores" class="sidebar-btn btn">Servidores publicos</a>
-            <a href="#Vehiculos" class="sidebar-btn btn">Vehiculos</a>
-        </div>
-        <div class="col-xs-9 col-lg-10 col-xs-offset-3 col-lg-offset-2">
+  <body data-spy="scroll" data-target="#myScrollspy" data-offset="20">
+      
+        <nav class="navbar navbar-fixed-top col-xs-3 col-md-2" id="myScrollspy">
+            <ul class="nav">
+                <li class="col-xs-12"><a href="#General">General</a></li>
+                <li class="col-xs-12"><a href="#Estado">Estado</a></li>
+                <li class="col-xs-12"><a href="#Victimas">Victimas</a></li>
+                <li class="col-xs-12"><a href="#Detenidos">Detenidos</a></li>
+                <li class="col-xs-12"><a href="#Testigos">Testigos</a></li>
+                <li class="col-xs-12"><a href="#Servidores">Servidores publicos</a></li>
+                <li class="col-xs-12"><a href="#Vehiculos">Vehiculos</a></li>
+            </ul>
+        </nav>
+        <div class="col-xs-9 col-md-10 col-lg-9 col-md-offset-2 col-xs-offset-3 col-lg-offset-2">
             <div id="General" class="Segment">
                 <h2>General</h2>
                 <div  class="row Col">
@@ -92,10 +91,21 @@
             <div id="Vehiculos" class="Segment">
                 <h2>Vehiculos</h2>
             </div>
-            <div id="Acordonamiento" class="Segment">
-                <h2>Acordonamiento</h2>
-            </div>
-
         </div>
+
+
+        <script src="../lib/angular/angular.min.js"></script>
+        <script src="../lib/bootstrap/js/bootstrap.min.js"/>
+      <script src="../lib/ui-bootstrap.min.js"></script>
+<!--   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+ 
+        <script src="https://maps.googleapis.com/maps/api/js"></script>
+        <script src="../lib/angular/angular.min.js"></script>
+        <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="Lugar.js"></script>
+        <script src="../lib/bootstrap/js/bootstrap.min.js"/>
+        <script src="../lib/ui-bootstrap.min.js"></script>-->
     </body>
 </html>

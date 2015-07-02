@@ -1,0 +1,86 @@
+<html ng-app="App">
+    <head>
+        <link rel="stylesheet" href="../lib/bootstrap/css/bootstrap.css">
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="../lib/angular/angular.min.js"></script>
+        <script src="../lib/bootstrap/js/bootstrap.min.js"></script>
+        <script src="../lib/ui-bootstrap.min.js"></script>
+        <link rel="stylesheet" href="../LugardeLosHechos/Lugar.css">
+        <link rel="stylesheet" href="Indicios.css">
+        <script src="Indicios.js"></script>
+    </head>
+    
+     <body data-spy="scroll" data-target="#myScrollspy" data-offset="20">
+        <nav class="navbar hiden-print navbar-fixed-top col-xs-3 col-md-2" id="myScrollspy">
+            <ul class="nav">
+                <li class="col-xs-12"><a href="#Fijacion" >Fijación</a></li>
+                <li class="col-xs-12"><a href="#Identificacion">Identificación</a></li>
+                <li class="col-xs-12"><a href="#Recolecion">Relección</a></li>
+            </ul>
+        </nav>
+          <div class="col-xs-9 col-lg-10 col-xs-offset-3 col-lg-offset-2">
+            <div id="Fijacion" class="Segment">
+                <h2>General</h2>
+           <div class="row">
+                    <span class="col-xs-6 col-sm-4 col-md-2 ">Fotográfica </span>
+                    <div class="col-xs-2 col-lg-1">
+                        <input type="radio">Si</input>
+                    </div>
+                    <div class="col-xs-2 col-lg-1">
+                        <input type="radio">No</input>
+                    </div>
+                </div> 
+                <div class="row">
+                    <span class="col-xs-6 col-sm-4 col-md-2">Videograbación </span>
+                    <div class="col-xs-2 col-lg-1">
+                        <input type="radio">Si</input>
+                    </div>
+                    <div class="col-xs-2 col-lg-1">
+                        <input type="radio">No</input>
+                    </div>
+                </div>
+     <div class="row">
+                    <span class="col-xs-6 col-sm-4 col-md-2">Planimetrica (planos)</span>
+                    <div class="col-xs-2 col-lg-1">
+                        <input type="radio">Si</input>
+                    </div>
+                    <div class="col-xs-2 col-lg-1">
+                        <input type="radio">No</input>
+                    </div>
+                </div>
+                <div class="row">
+                    <span class="col-xs-6 col-sm-4 col-md-2 ">Por escrito </span>
+                    <div class="col-xs-2 col-lg-1">
+                        <input type="radio">Si</input>
+                    </div>
+                    <div class="col-xs-2 col-lg-1">
+                        <input type="radio">No</input>
+                    </div>
+                </div>
+                <div class="row">
+                    <span class="col-xs-6 col-sm-4 col-md-2 ">Otros </span>
+                    <input class="line-input col-xs-4 col-sm-6 col-md-8" type="text">
+                </div>
+                <div class="row">
+                    <span class="col-xs-6">Observaciones</span>
+                    <input class="line-input fullInput" type="text">
+                 </div>
+            </div>
+            <div id="Identificacion" class="Segment">
+                <h2>Identificación</h2>
+               
+            </div>
+            <div id="Recolecion" class="Segment">
+                <h2>Victimas</h2>
+                <div class="row">
+                    <span class="col-xs-6">Descripción de la forma en que se realizó</span>
+                    <input class="line-input fullInput" type="text">
+                </div>
+                <div class="row">
+                    <span class="col-xs-6">Medidas tomadas para preservar la integridad del indicio o evidencia</span>
+                    <input class="line-input fullInput" type="text">
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

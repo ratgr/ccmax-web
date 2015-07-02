@@ -1,9 +1,9 @@
-/*global $, jQuery, google, angular*/
+/*global $, jQuery, google, angular, geocoder*/
 
 function getAddress() {
     "use strict";
     
-        var geocoder, numero, calle, colonia, municipio, estado, pais, zip;
+    var geocoder, numero, calle, colonia, municipio, estado, pais, zip;
     
     geocoder = new google.maps.Geocoder();
     
@@ -14,7 +14,7 @@ function getAddress() {
             
             count = results[0].address_components.length;
 
-            for ( i = 0; i < count; i++){
+            for (i = 0; i < count; i++){
                 
                 switch (results[0].address_components[i].types[0]) {
                     case "street_number":
@@ -55,24 +55,45 @@ function getAddress() {
                 }
             }
             
-            window.alert(calle + colonia + municipio + estado + pais + zip);
         } else {
             window.alert("Geocode was not successful for the following reason: " + status);
         }
     });
 }      
 
+//angular.module('App', ['ui.bootstrap']);
+
+getAddress();
+
  $(document).ready(function(){
-                window.alert("Hello, World!");
+      var count, calles;
+        
+        $.getJSON('http://api.geonames.org/findNearbyStreetsOSMJSON?lat=20.6558107&lng=-103.3991779&username=dixi1903', function(data) {
+            calles = [];
+            
+            $.each(data.streetSegment, function(i, field){
+                if(calles.indexOf(field.name) === -1)
+                {
+                    calles.push(field.name);
+                }
+            });
+            
+            
+            $( ".calle-input" ).autocomplete({
+                source: calles
             });
 
-function getStreets(lat, lng) {
-    $.getJSON('http://api.geonames.org/findNearbyStreetsOSMJSON?lat=20.6558107&lng=-103.3991779&username=demo', function(data) {
-        window.alert(data);
-    });
-}
+        });
+});
 
-angular.module('App', ['ui.bootstrap']);
-    
-getAddress();
-getStreets(2,2);
+/* $(document).ready(function () {
+
+    $('#buscar').click(function () {
+        $.getJSON('http://api.geonames.org/findNearbyStreetsOSMJSON?lat=20.6558107&lng=-103.3991779&username=demo', function(data) {
+            window.alert(data);
+        });
+    });
+});*/
+
+
+ 
