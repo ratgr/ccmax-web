@@ -1,5 +1,6 @@
 <html ng-app="App">
     <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link href="../blib/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
         <link href="../Lugar/Lugar.css"  rel="stylesheet">
         <script src="../blib/angular/angular.js"></script>
@@ -65,19 +66,26 @@
                     <input class="line-input fullInput" type="text">
                  </div>
             </div>
-            <div id="Vehiculos" class="Segment ">
+            <div id="Vehiculos" class="Segment">
                 <h2>Vehiculos</h2>
                 <div ng-controller="VehiculeControl">
+                    {{selected}}
+                    <div class="row">Placa: <input class="line-input" ng-model="Vehiculos[selected].placa"></input></div>
+                    <div class="row">Marca: <input class="line-input" ng-model="Vehiculos[selected].marca"></input></div>
+                    <div class="row">Tipo: <input class="line-input"  ng-model="Vehiculos[selected].tipo"></input></div>
+                    <div class="row">Color: <input class="line-input" ng-model="Vehiculos[selected].color"></input></div>
+                    <div class="row">Año: <input class="line-input" ng-model="Vehiculos[selected].ano"></input></div>
                     <div class="row list-margin">
-                        <a href="#/Vehiculo/{{$index}}" class="vehiculo-div btn" ng-repeat="vehiculo in Vehiculos">
+                        <a ng-click="select($index)" class="vehiculo-div btn" ng-repeat="vehiculo in Vehiculos">
+                            <button>x</button>
                             <div class="vehi-image-container"></div>
                             <div>Marca: {{vehiculo.marca}}</div>
                             <div>Tipo: {{vehiculo.tipo}}</div>
                             <div>Color: {{vehiculo.color}}</div>
-                            <div>A&ntilde;o: {{vehiculo.ano}}</div>
+                            <div>Año: {{vehiculo.ano}}</div>
                             <div>Placa: {{vehiculo.placa}}</div>
                         </a>
-                        <a href="#/Vehiculo/" class="vehiculo-div btn">
+                        <a ng-click="add()"  class="vehiculo-div btn">
                             <span class="btn-plus glyphicon glyphicon-plus"></span>
                         </a>
                        
