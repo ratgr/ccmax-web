@@ -1,21 +1,25 @@
 <!DOCTYPE html>
 <html ng-app="App">
     <head>
-        <link rel="stylesheet" href="../lib/bootstrap/css/bootstrap.css"> >
-        <script src="https://maps.googleapis.com/maps/api/js"></script>
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <link rel="stylesheet" href="../lib/bootstrap/dist/css/bootstrap.css"> 
+        <link rel="stylesheet" href="../css/style.css">      
+        <link href="../css/Lugar.css"  rel="stylesheet">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link href="../Lugar/Lugar.css"  rel="stylesheet">
-        <script src="../blib/angular/angular.js"></script>
-        <script src="../blib/angular-route/angular-route.js"></script>
-        <script src="../App.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="https://maps.googleapis.com/maps/api/js"></script>
+        <script src="../lib/angular/angular.js"></script>
+        <script src="../lib/angular-route/angular-route.js"></script>
+        <script src="../lib/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="lugar.js"></script>
     </head>
-    <body>
-        <div class="sidebar col-xs-3 col-lg-2">
-            <a href="{{Lugar}}#General" class="sidebar-btn btn">General</a>
-            <a href="{{Lugar}}#Estado" class="sidebar-btn btn">Estado</a>
-            <a href="{{Lugar}}#Vehiculos" class="sidebar-btn btn">Vehiculos</a>
-        </div>
+    <body data-spy="scroll" data-target="#myScrollspy">
+        <nav class="navbar navbar-fixed-top col-xs-3 col-lg-2" id="myScrollspy">
+            <ul class="nav">
+                <li class="col-xs-12"><a href="#General">General</a></li>
+                <li class="col-xs-12"><a href="#Estado">Estado</a></li>
+                <li class="col-xs-12"><a href="#Vehiculos">Vehiculos</a></li>
+            </ul>
+        </nav>
         <div class="col-xs-9 col-lg-10 col-lg-offset-2 col-xs-offset-3">
             <div id="General" class="Segment">
                 <h2>General</h2>
@@ -73,12 +77,14 @@
             <div id="Vehiculos" class="Segment">
                 <h2>Vehiculos</h2>
                 <div ng-controller="VehiculeControl">
-                    {{selected}}
-                    <div class="row">Placa: <input class="line-input" ng-model="Vehiculos[selected].placa"></input></div>
-                    <div class="row">Marca: <input class="line-input" ng-model="Vehiculos[selected].marca"></input></div>
-                    <div class="row">Tipo: <input class="line-input"  ng-model="Vehiculos[selected].tipo"></input></div>
-                    <div class="row">Color: <input class="line-input" ng-model="Vehiculos[selected].color"></input></div>
-                    <div class="row">Año: <input class="line-input" ng-model="Vehiculos[selected].ano"></input></div>
+                    <div class="row">
+                        Marca: <input class="line-input" ng-model="Vehiculos[selected].marca"></input>
+                        Tipo: <input class="line-input"  ng-model="Vehiculos[selected].tipo"></input></div>
+                    <div class="row">
+                        Placa: <input class="line-input" ng-model="Vehiculos[selected].placa"></input>
+                        Color: <input class="line-input" ng-model="Vehiculos[selected].color"></input>
+                        Año: <input class="line-input" ng-model="Vehiculos[selected].ano"></input>
+                    </div>
                     <div class="row list-margin">
                         <a ng-click="select($index)" class="vehiculo-div btn" ng-repeat="vehiculo in Vehiculos">
                             <button ng-click="remove($index)" class="close-btn btn"><span class="glyphicon glyphicon-remove"></span></button>
@@ -92,14 +98,10 @@
                         <a ng-click="add()"  class="vehiculo-div btn">
                             <span class="btn-plus glyphicon glyphicon-plus"></span>
                         </a>
-  
                     </div>
                 </div>
             </div>
         </div>
-
-        <script src="../lib/angular/angular.min.js"></script>
-        <script src="../lib/ui-bootstrap.min.js"></script>
 <!--   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
  

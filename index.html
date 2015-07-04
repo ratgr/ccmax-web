@@ -1,16 +1,54 @@
 <html ng-app="App">
     <head>
         <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.css">
-        <script src="lib/angular/angular.min.js"></script>
-        <script src="lib/angular-route/angular-route.min.js"></script>
-        <script src="lib/angular-route-styles/route-styles.js"></script>
-        <script src="App.js"></script>
         <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="css/Main.css">
         <link rel="stylesheet" href="css/Lugar.css">
+        <script src="lib/jquery/dist/jquery.min.js"></script>
+        <script src="http://maps.googleapis.com/maps/api/js?libraries=weather,visualization&sensor=false&language=en&v=3.13"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.min.js" type="text/javascript"></script>
+        <script src="lib/angular-google-maps.js/angular-google-maps.js"></script>
+        <script src="main.js"></script>
     </head>
     <body>
-        <ng-view></ng-view>
+        <div >
+            <div class="row" ng-controller="controller">
+                <ui-gmap-google-map class="col-xs-6"
+                    center="map.center"
+                    zoom="map.zoom">
+                </ui-gmap-google-map>
+                <div class="col-sm-4" ng-controller="SensorController">
+                    <p>Temperatura: {{Temperatura}}°C</p>
+                    <p>Altitud: {{Altitud}}m</p>
+                    <p>Presion: {{Presion}}hpa</p>
+                    <p>Humedad: {{Humedad}}%</p>
+                    <p>Position: {{Position}}</p>
+                </div>
+            </div>
+            <div class="row btn-row">
+                <div class="col-sm-3">
+                    <a href="Lugar" class="btn btnPrincipal" >Lugar de los hechos</a>
+                </div>
+                <div href="Indicios" class="col-sm-3">
+                    <a href="Indicios" class="btn btnPrincipal" >Indicios</a>
+                </div>
+                <div class="col-sm-3">
+                    <Button class="btn btnPrincipal">
+                        Entrega de Indicios 
+                    </Button>
+                </div>
+                <div class="col-sm-3">
+                    <Button class="btn btnPrincipal">
+                        Generar Reporte 
+                    </Button>
+                </div>
+            </div>
+            <div class="cnfg">
+                    <button class="btn">
+                        <span class="glyphicon glyphicon-cog"></span>
+                    </button>
+            </div>   
+        </div>       
     </body>
-</html>
 </html>
