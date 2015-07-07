@@ -17,6 +17,10 @@
             <ul class="nav">
                 <li class="col-xs-12"><a href="#General">General</a></li>
                 <li class="col-xs-12"><a href="#Estado">Estado</a></li>
+                <li class="col-xs-12"><a href="#Victimas">Victimas</a></li>
+                <li class="col-xs-12"><a href="#Detenenidos">Detenidos</a></li>
+                <li class="col-xs-12"><a href="#Testigos">Testigos</a></li>
+                <li class="col-xs-12"><a href="#Servidores">Servidores</a></li>
                 <li class="col-xs-12"><a href="#Vehiculos">Vehiculos</a></li>
             </ul>
         </nav>
@@ -73,6 +77,61 @@
                     <input class="line-input fullInput" type="text">
                  </div>
             </div>
+            <div id="Victimas" class="Segment">
+                <h2>Victimas</h2>
+                <div ng-controller="VictimasControl">
+                    <div class="row">
+                        Nombre: <input class="line-input" ng-model="Victimas[selected].nombre"></input>
+                        Apellido: <input class="line-input"  ng-model="Victimas[selected].apellido"></input></div>
+                    <div class="row">
+                        Genero: <input class="line-input" ng-model="Victimas[selected].genero"></input>
+                        Edad: <input class="line-input" ng-model="Victimas[selected].edad"></input>
+                        Observaciones: <input class="line-input" ng-model="Victimas[selected].observaciones"></input>
+                    </div>
+                    <div class="row list-margin">
+                        <a ng-click="select($index)" class="vehiculo-div btn" ng-repeat="victima in Victimas">
+                            <button ng-click="remove($index)" class="close-btn btn"><span class="glyphicon glyphicon-remove"></span></button>
+                            <div class="vehi-image-container"></div>
+                            <div>Nombre: {{victima.nombre}}</div>
+                            <div>Apellido: {{victima.apellido}}</div>
+                            <div>Genero: {{victima.genero}}</div>
+                            <div>Edad: {{victima.edad}}</div>
+                            <div>Observaciones: {{victima.observaciones}}</div>
+                        </a>
+                        <a ng-click="add()"  class="vehiculo-div btn">
+                            <span class="btn-plus glyphicon glyphicon-plus"></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div id="Detenidos" class="Segment">
+                <h2>Detenidos</h2>
+                <div ng-controller="DetenidosControl">
+                    <div class="row">
+                        Nombre: <input class="line-input" ng-model="Detenidos[selected].nombre"></input>
+                        Apellido: <input class="line-input"  ng-model="Detenidos[selected].apellido"></input></div>
+                    <div class="row">
+                        Genero: <input class="line-input" ng-model="Detenidos[selected].genero"></input>
+                        Edad: <input class="line-input" ng-model="Detenidos[selected].edad"></input>
+                        Observaciones: <input class="line-input" ng-model="Detenidos[selected].observaciones"></input>
+                    </div>
+                    <div class="row list-margin">
+                        <a ng-click="select($index)" class="vehiculo-div btn" ng-repeat="detenido in Detenidos">
+                            <button ng-click="remove($index)" class="close-btn btn"><span class="glyphicon glyphicon-remove"></span></button>
+                            <div class="vehi-image-container"></div>
+                            <div>Nombre: {{detenido.nombre}}</div>
+                            <div>Apellido: {{detenido.apellido}}</div>
+                            <div>Genero: {{detenido.genero}}</div>
+                            <div>Edad: {{detenido.edad}}</div>
+                            <div>Observaciones: {{detenido.observaciones}}</div>
+                        </a>
+                        <a ng-click="add()"  class="vehiculo-div btn">
+                            <span class="btn-plus glyphicon glyphicon-plus"></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
 
             <div id="Vehiculos" class="Segment">
                 <h2>Vehiculos</h2>
@@ -101,6 +160,8 @@
                     </div>
                 </div>
             </div>
+            
+            
         </div>
 <!--   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>

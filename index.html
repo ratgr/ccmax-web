@@ -14,11 +14,12 @@
     <body>
         <div >
             <div class="row" ng-controller="controller">
-                <ui-gmap-google-map class="col-xs-6"
+                <ui-gmap-google-map class="col-xs-12 col-sm-8 col-lg-6"
                     center="map.center"
                     zoom="map.zoom">
+                    <ui-gmap-markers models="map.markers" coords="'self'" fit='true'></ui-gmap-markers>
                 </ui-gmap-google-map>
-                <div class="col-sm-4" ng-controller="SensorController">
+                <div class="col-xs-12 col-xs-offset-1 col-sm-4" ng-controller="SensorController">
                     <p>Temperatura: {{Temperatura}}°C</p>
                     <p>Altitud: {{Altitud}}m</p>
                     <p>Presion: {{Presion}}hpa</p>
@@ -27,7 +28,7 @@
                 </div>
             </div>
             <div class="row btn-row">
-                <div class="col-sm-3">
+                <div class="col-sm-3 col-sm-offset">
                     <a href="Lugar" class="btn btnPrincipal" >Lugar de los hechos</a>
                 </div>
                 <div href="Indicios" class="col-sm-3">
