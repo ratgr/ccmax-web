@@ -1,6 +1,47 @@
 var app = angular.module('App', ['uiGmapgoogle-maps']);
 
-app.controller("controller", function ($scope, $timeout) {
+var map;
+
+function initializeMap() {
+    "use strict";
+    
+    var mapCanvas, mapOptions, latlng;
+    
+    latlng = new google.maps.LatLng(21, -103);
+    
+    mapOptions = {
+        zoom: 15,
+        center: latlng
+    };
+    map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+}
+
+function createMarker(origin, Title) {
+    
+    var marker, infoWnd;
+    
+    
+    infoWnd = new google.maps.InfoWindow();
+    
+    marker = new google.maps.Marker({
+        title: Title,
+        position: origin,
+        map: map,
+        animation: google.maps.Animation.DROP
+    });
+
+    google.maps.event.addListener(marker, "click", function () {
+        infoWnd.setContent("<strong>" + Title + "</strong><br>");
+        infoWnd.open(map, marker);
+    });
+            
+    return marker;
+}
+
+google.maps.event.addDomListener(window, "load", initializeMap);
+
+/*
+app.controller("controller", function ($scope) {
     angular.extend($scope, {
         map: {
             center: {
@@ -17,8 +58,7 @@ app.controller("controller", function ($scope, $timeout) {
             ]
         }
     });
-});
-
+});*/
 
 app.controller("SensorController", function ($scope) {
     $scope.Temperatura = 11.56;
@@ -27,15 +67,16 @@ app.controller("SensorController", function ($scope) {
     $scope.Presion = 811.3;
     $scope.Position = "20°39′58″N 103°21′07″O";
     
-
     navigator.geolocation.watchPosition(function (pos) {
-    
-            window.alert("0");
-            $scope.$apply(function () {
+        $scope.$apply(function () {
             $scope.Position = pos.coords.latitude + "," + pos.coords.longitude;
+            
+            
+            var currentLatlng = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
+            createMarker(currentLatlng, "Posición actual");
+            map.setCenter(currentLatlng);
         });
     });
 });
 
  
-

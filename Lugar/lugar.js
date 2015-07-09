@@ -1,9 +1,6 @@
-/*global angular, google*/
-
+/*global angular, google, geocoder*/
 
 var app = angular.module('App', []);
-
-
 
 app.factory('VehiculeService', function () {
     "use strict";
@@ -176,11 +173,138 @@ app.controller("TestigosControl", function ($scope, TestigosService) {
     $scope.remove = function (index) {
         TestigosService.remove(index);
     };
+    
+    
 
 });
 
+app.factory('ServidoresService', function () {
+    "use strict";
+    var servidores, selectedIndex, selected, returnService;
 
+    servidores = [];
 
+    selected = 0;
+
+    returnService = {};
+
+    returnService.servidores = servidores;
+    returnService.selected = selected;
+    returnService.add = function () {
+        servidores[servidores.length] = {};
+    };
+    returnService.remove = function (index) {
+        servidores.splice(index, 1);
+    };
+
+    return returnService;
+});
+
+app.controller("ServidoresControl", function ($scope, ServidoresService) {
+    "use strict";
+    $scope.Servidores = ServidoresService.servidores;
+
+    $scope.selected = ServidoresService.selected;
+
+    $scope.select = function (index) {
+        $scope.selected = index;
+    };
+
+    $scope.add = function () {
+        $scope.selected = ServidoresService.servidores.length;
+        ServidoresService.add();
+    };
+
+    $scope.remove = function (index) {
+        ServidoresService.remove(index);
+    };
+
+});
+
+function getAddress() {
+    "use strict";
+    
+    var geocoder, numero, calle, colonia, municipio, estado, pais, zip;
+    
+    geocoder = new google.maps.Geocoder();
+    
+    geocoder.geocode({ address: "20.6558107,-103.3991779"}, function (results, status) {
+        var lat, lng, i, count, input;
+
+        if (status === google.maps.GeocoderStatus.OK) {
+            
+            count = results[0].address_components.length;
+
+            for (i = 0; i < count; i++){
+                
+                switch (results[0].address_components[i].types[0]) {
+                    case "street_number":
+                        numero = results[0].address_components[i].long_name;
+                        input = document.getElementById("numero-in");
+                        input.value = numero;
+                        break;
+                      
+                    case "route":
+                        calle = results[0].address_components[i].long_name;
+                        input = document.getElementById("calle-in");
+                        input.value = calle;
+                        break;
+                     
+                    case "neighborhood":
+                        colonia = results[0].address_components[i].long_name;
+                        input = document.getElementById("colonia-in");
+                        input.value = colonia;
+                        break;
+                    
+                    case "locality":
+                        municipio = results[0].address_components[i].long_name;
+                        break;
+                        
+                    case "administrative_area_level_1":
+                        estado = results[0].address_components[i].long_name;
+                        break;
+                    
+                    case "country":
+                        pais = results[0].address_components[i].long_name;
+                        break;
+                    
+                    case "postal_code":
+                        zip = results[0].address_components[i].long_name;
+                        input = document.getElementById("zip-in");
+                        input.value = zip;
+                        break;
+                }
+            }
+            
+        } else {
+            window.alert("Geocode was not successful for the following reason: " + status);
+        }
+    });
+}      
+
+getAddress();
+
+ $(document).ready(function(){
+      var count, calles;
+        
+        $.getJSON('http://api.geonames.org/findNearbyStreetsOSMJSON?lat=20.6558107&lng=-103.3991779&username=dixi1903', function(data) {
+            calles = [];
+            
+            $.each(data.streetSegment, function(i, field){
+                if(calles.indexOf(field.name) === -1)
+                {
+                    calles.push(field.name);
+                }
+            });
+            
+            window.alert(calles);
+            
+            $( ".calle-input" ).autocomplete({
+                source: calles
+            });
+
+        });
+});
 
 
 

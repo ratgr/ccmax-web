@@ -1,4 +1,3 @@
-
 .sidebar {
     position: fixed;
     left: 0;
@@ -39,6 +38,7 @@ input:focus {outline: none; }
     width: 40%;
     min-width: 300px;
 }
+
 .din-input {
     width: 25vw;
     min-width: 300px;
@@ -75,8 +75,13 @@ input:focus {outline: none; }
     border-right-style: ridge;
 }
 
+.ui-menu .ui-menu-item a{
+    background:red;
+    height:10px;
+    font-size:8px;
+}
 
-.vehiculo-div {
+.item-div {
     
     width: 200px;
     height: 250px;
@@ -87,14 +92,28 @@ input:focus {outline: none; }
     box-shadow: 0px 0px 15px 0px rgba(0,0,0,1);
 }
 
-.vehicle-image {
+.item-image {
     width: 120;
     max-width: 100%; 
     height: inherit;
 }
 
-.list-margin {
-    margin-right: 10px;
+.persona-image-container {
+    width: 100%;
+    background-image:  url(../img/icono_persona.png);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 110px;
+}
+
+.servidor-image-container {
+    width: 100%;
+    background-image:  url(../img/icono_servidor.png);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 110px;
 }
 
 .vehi-image-container {
@@ -104,6 +123,19 @@ input:focus {outline: none; }
     background-position: center;
     background-repeat: no-repeat;
     height: 110px;
+}
+
+.indicio-image-container {
+    width: 100%;
+    background-image:  url(../img/icono_indicio.png);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 110px;
+}
+
+.list-margin {
+    margin-right: 10px;
 }
 
 .list-add {
@@ -129,6 +161,9 @@ input:focus {outline: none; }
 
 .angular-google-map-container { height: 400px; }
 
+.itemActive {
+     box-shadow: 0px 0px 15px 0px rgb(43, 110, 145);
+}
 
 .navbar .nav {
     
@@ -147,7 +182,6 @@ input:focus {outline: none; }
     border-bottom-width: 1px;
     border-bottom-style: ridge;
 }
-
 
 .navbar .nav > li > a {
     padding: 10px;
@@ -169,13 +203,10 @@ input:focus {outline: none; }
     
 }
 
-/* hide inactive nested list */
 .navbar .nav ul.nav {
    display: none;           
 }
-/* show active nested list */
+
 .navbar .nav>.active>ul.nav {
     display:block
 }
-
-
