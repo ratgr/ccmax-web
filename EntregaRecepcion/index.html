@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html ng-app="App">
+    <head>
+        <link rel="stylesheet" href="../lib/bootstrap/dist/css/bootstrap.css">
+        <link rel="stylesheet" href="../css/style.css">  
+        <link rel="stylesheet" href="../css/Lugar.css">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="../lib/angular/angular.min.js"></script>
+        <script src="../lib/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="indicios.js"></script>
+    </head>
+    
+     <body data-spy="scroll" data-target="#myScrollspy" >
+        <nav class="navbar navbar-fixed-top col-xs-3 col-md-2" id="myScrollspy">
+            <ul class="nav">
+                <li class="col-xs-12"><a href="#Fijacion" >Fijación</a></li>
+                <li class="col-xs-12"><a href="#Identificacion">Identificación</a></li>
+                <li class="col-xs-12"><a href="#Recolecion">Relección</a></li>
+            </ul>
+        </nav>
+          <div class="col-xs-9 col-lg-10 col-xs-offset-3 col-md-offset-2">
+            <div id="Fijacion" class="Segment">
+                <h4>Ubicación del lugar de la intervención</h4>
+                <div class="row">
+                     <div class="col-xs-11 col-md-6">
+                        <p class="col-xs-3 col-lg-2">Unidad Administrativa:</p>
+                        <input class="line-input col-xs-9" ng-model="Vehiculos[selected].marca"></input>
+                    </div>
+                    <div class="col-xs-11 col-md-6">
+                        <p class="col-xs-3 col-lg-2" for="apellido">Entidad Federativa:</p>
+                        <input class="line-input col-xs-9 "  ng-model="Vehiculos[selected].tipo"></input>
+                    </div>
+                    <div class="col-xs-6 col-md-4">
+                        <p class="col-xs-4 col-md-3 col-lg-2">Delegación o Municipio:</p>
+                        <input class="line-input col-xs-7 col-md-8 col-lg-9"></input>
+                    </div>
+                    <div class="col-xs-6 col-md-4">
+                        <p class="col-xs-4 col-sm-3 col-lg-2">Fecha y hora:</p> 
+                        <input class="line-input col-xs-7 col-md-8 col-lg-9"></input>
+                    </div>
+                </div> 
+                <h4>Servidor público encargado de la preservación que entrega el lugar de la intervención</h4>
+                <div class="row">
+                     <div class="col-xs-11 col-md-6">
+                        <p class="col-xs-3 col-lg-2">Nombre completo:</p>
+                        <input class="line-input col-xs-9"></input>
+                    </div>
+                    <div class="col-xs-11 col-md-6">
+                        <p class="col-xs-3 col-lg-2" for="apellido">Cargo:</p>
+                        <input class="line-input col-xs-9 "></input>
+                    </div>
+                    <div class="col-xs-6 col-md-4">
+                        <p class="col-xs-4 col-md-3 col-lg-2">Fecha y hora:</p>
+                        <input class="line-input col-xs-7 col-md-8 col-lg-9"></input>
+                    </div>
+                    <div class="col-xs-6 col-md-4">
+                        <p class="col-xs-4 col-sm-3 col-lg-2">Firma:</p> 
+                        <input class="line-input col-xs-7 col-md-8 col-lg-9"></input>
+                    </div>
+                </div> 
+                <h4>Servidor público que recibe el lugar de la intervención</h4>
+                <div class="row">
+                     <div class="col-xs-11 col-md-6">
+                        <p class="col-xs-3 col-lg-2">Nombre completo:</p>
+                        <input class="line-input col-xs-9" ng-model="Vehiculos[selected].marca"></input>
+                    </div>
+                    <div class="col-xs-11 col-md-6">
+                        <p class="col-xs-3 col-lg-2" for="apellido">Cargo:</p>
+                        <input class="line-input col-xs-9 "  ng-model="Vehiculos[selected].tipo"></input>
+                    </div>
+                    <div class="col-xs-6 col-md-4">
+                        <p class="col-xs-4 col-md-3 col-lg-2">Fecha y hora:</p>
+                        <input class="line-input col-xs-7 col-md-8 col-lg-9" ng-model="Vehiculos[selected].placa"></input>
+                    </div>
+                    <div class="col-xs-6 col-md-4">
+                        <p class="col-xs-4 col-sm-3 col-lg-2">Firma:</p> 
+                        <input class="line-input col-xs-7 col-md-8 col-lg-9" ng-model="Vehiculos[selected].color"></input>
+                    </div>
+                </div> 
+                <h4>Dirección</h4>
+                <div class="row">
+                     <div class="col-xs-11 col-md-6">
+                        <p class="col-xs-3 col-lg-2">Calle:</p>
+                        <input class="line-input col-xs-9"></input>
+                    </div>
+                    <div class="col-xs-11 col-md-6">
+                        <p class="col-xs-3 col-lg-2" for="apellido">No Aprox:</p>
+                        <input class="line-input col-xs-9 "></input>
+                    </div>
+                    <div class="col-xs-6 col-md-4">
+                        <p class="col-xs-4 col-md-3 col-lg-2">Colonia:</p>
+                        <input class="line-input col-xs-7 col-md-8 col-lg-9"></input>
+                    </div>
+                    <div class="col-xs-6 col-md-4">
+                        <p class="col-xs-4 col-sm-3 col-lg-2">Codigo Postal:</p> 
+                        <input class="line-input col-xs-7 col-md-8 col-lg-9"></input>
+                    </div>
+                    <div class="col-xs-6 col-md-4">
+                        <p class="col-xs-4 col-sm-3 col-lg-2">Comenatrio:</p> 
+                        <input class="line-input col-xs-7 col-md-8 col-lg-9"></input>
+                    </div>
+                </div>
+                <h4>Preservación del lugar de intervención</h4>
+                <div class="row">
+                     <div class="col-xs-11 col-md-6">
+                        <p class="col-xs-3 col-lg-2">Señala las medidas tomadas para preservar el lugar de intervención</p>
+                        <input class="line-input col-xs-9"></input>
+                    </div>
+                </div>
+                <h4>Documentación del lugar de intervención</h4>
+                <div class="row">
+                    <span class="col-xs-6 col-sm-4 col-md-2 ">Fotográfica </span>
+                    <div class="col-xs-2 col-lg-1">
+                        <input type="radio">Si</input>
+                    </div>
+                    <div class="col-xs-2 col-lg-1">
+                        <input type="radio">No</input>
+                    </div>
+                </div> 
+                <div class="row">
+                    <span class="col-xs-6 col-sm-4 col-md-2">Videograbación </span>
+                    <div class="col-xs-2 col-lg-1">
+                        <input type="radio">Si</input>
+                    </div>
+                    <div class="col-xs-2 col-lg-1">
+                        <input type="radio">No</input>
+                    </div>
+                </div>
+                <div class="row">
+                    <span class="col-xs-6 col-sm-4 col-md-2">Planimetrica (planos)</span>
+                    <div class="col-xs-2 col-lg-1">
+                        <input type="radio">Si</input>
+                    </div>
+                    <div class="col-xs-2 col-lg-1">
+                        <input type="radio">No</input>
+                    </div>
+                </div>
+                <h4>Personas que relizaron estas actividades</h4>
+                <div ng-controller="DocServidoresControl">
+                    <div class="row">
+                        <div class="col-xs-11 col-lg-3">
+                            <p class="col-xs-6 col-sm-4 col-md-3 col-lg-8">Nombre completo: </p>
+                            <input class="line-input col-xs-6 col-lg-4" ng-model="DocServidores[selected].nombre"></input>
+                        </div>
+                        <div class="col-xs-11 col-lg-9">
+                            <p class="col-xs-4 col-sm-3 col-lg-2">Cargo:</p>
+                            <input class="line-input col-xs-8 col-sm-9 "  ng-model="DocServidores[selected].cargo"></input>
+                        </div>
+                    </div>
+                    <div class="row list-margin">
+                        <a ng-click="select($index)" ng-class="{itemActive: selected == $index}" class="item-div btn" ng-repeat="servidor in DocServidores">
+                            <button ng-click="remove($index)" class="close-btn btn"><span class="glyphicon glyphicon-remove"></span></button>
+                            <div class="persona-image-container"></div>
+                            <div>Nombre completo: {{servidor.nombre}}</div>
+                            <div>Cargo: {{servidor.cargo}}</div>
+                        </a>
+                        <a ng-click="add()"  class="item-div btn">
+                            <span class="btn-plus glyphicon glyphicon-plus"></span>
+                        </a>
+                    </div>
+                </div>
+                <h4>Modificación del lugar</h4>
+                <div class="row">
+                    <span class="col-xs-6 col-sm-4 col-md-2 ">Fue modificado el lugar</span>
+                    <div class="col-xs-2 col-lg-1">
+                        <input type="radio">Si</input>
+                    </div>
+                    <div class="col-xs-2 col-lg-1">
+                        <input type="radio">No</input>
+                    </div>
+                </div> 
+                <div class="row">
+                    <span class="col-xs-6 col-sm-4 col-md-2">Tipo de modificación: </span>
+                    <div class="col-xs-2 col-lg-1">
+                        <input type="radio">Intencional</input>
+                    </div>
+                    <div class="col-xs-2 col-lg-1">
+                        <input type="radio">Cuerpos de emergencia</input>
+                    </div>
+                    <div class="col-xs-2 col-lg-1">
+                        <input type="radio">Fenómenos naturales</input>
+                    </div>
+                </div>
+                <div class="row">
+                     <div class="col-xs-11 col-md-6">
+                        <p class="col-xs-3 col-lg-2">Especifique</p>
+                        <input class="line-input col-xs-9"></input>
+                    </div>
+                </div>
+                <h4>Detección temprana de riesgos</h4>
+                <div class="row">
+                     <div class="col-xs-11 col-md-6">
+                        <p class="col-xs-3 col-lg-2">Especifique aqullas circunstancias que pueden representar un riesgo para la integridad del lugar</p>
+                        <input class="line-input col-xs-9"></input>
+                    </div>
+                </div>
+                <h4>Victimas</h4>
+                <div ng-controller="VictimasControl">
+                    <div class="row">
+                         <div class="col-xs-11 col-lg-3">
+                            <p class="col-xs-6 col-sm-4 col-md-3 col-lg-8">No.: </p>
+                            <input class="line-input col-xs-6 col-lg-4" ng-model="Victimas[selected].numero"></input>
+                        </div>
+                        <div class="col-xs-11 col-lg-3">
+                            <p class="col-xs-6 col-sm-4 col-md-3 col-lg-8">Nombre: </p>
+                            <input class="line-input col-xs-6 col-lg-4" ng-model="Victimas[selected].nombre"></input>
+                        </div>
+                        <div class="col-xs-11 col-lg-9">
+                            <p class="col-xs-4 col-sm-3 col-lg-2">Condición:</p>
+                            <input class="line-input col-xs-8 col-sm-9 "  ng-model="Victimas[selected].condicion"></input>
+                        </div>
+                    </div>
+                    <div class="row list-margin">
+                        <a ng-click="select($index)" ng-class="{itemActive: selected == $index}" class="item-div btn" ng-repeat="victima in Victimas">
+                            <button ng-click="remove($index)" class="close-btn btn"><span class="glyphicon glyphicon-remove"></span></button>
+                            <div class="persona-image-container"></div>
+                            <div>No.: {{victima.numero}}</div>
+                            <div>Nombre: {{victima.nombre}}</div>
+                            <div>Condición: {{victima.condicion}}</div>
+                        </a>
+                        <a ng-click="add()"  class="item-div btn">
+                            <span class="btn-plus glyphicon glyphicon-plus"></span>
+                        </a>
+                    </div>
+                </div>
+                <h4>Destino de las vitimas</h4>
+                <div ng-controller="DestinosControl">
+                    <div class="row">
+                         <div class="col-xs-11 col-lg-3">
+                            <p class="col-xs-6 col-sm-4 col-md-3 col-lg-8">No.: </p>
+                            <input class="line-input col-xs-6 col-lg-4" ng-model="Destinos[selected].numero"></input>
+                        </div>
+                        <div class="col-xs-11 col-lg-3">
+                            <p class="col-xs-6 col-sm-4 col-md-3 col-lg-8">Institución que lo traslado: </p>
+                            <input class="line-input col-xs-6 col-lg-4" ng-model="Destinos[selected].institucion"></input>
+                        </div>
+                        <div class="col-xs-11 col-lg-9">
+                            <p class="col-xs-4 col-sm-3 col-lg-2">Lugar al que se traslado:</p>
+                            <input class="line-input col-xs-8 col-sm-9 "  ng-model="Destinos[selected].lugar"></input>
+                        </div>
+                        <div class="col-xs-11 col-lg-9">
+                            <p class="col-xs-4 col-sm-3 col-lg-2">Placas o numero economico de la unidad:</p>
+                            <input class="line-input col-xs-8 col-sm-9 "  ng-model="Victimas[selected].unidad"></input>
+                        </div>
+                    </div>
+                    <div class="row list-margin">
+                        <a ng-click="select($index)" ng-class="{itemActive: selected == $index}" class="item-div btn" ng-repeat="destino in Destinos">
+                            <button ng-click="remove($index)" class="close-btn btn"><span class="glyphicon glyphicon-remove"></span></button>
+                            <div class="persona-image-container"></div>
+                            <div>No.: {{destino.numero}}</div>
+                            <div>Insitución que lo traslado: {{destino.institucion}}</div>
+                            <div>Lugar de traslado: {{destino.lugar}}</div>
+                            <div>Placas o numero economico de la unidad: {{destino.unidad}}</div>
+                        </a>
+                        <a ng-click="add()"  class="item-div btn">
+                            <span class="btn-plus glyphicon glyphicon-plus"></span>
+                        </a>
+                    </div>
+                </div>
+                <h4>Detenidos</h4>
+                <div ng-controller="DetenidosControl">
+                    <div class="row">
+                         <div class="col-xs-11 col-lg-3">
+                            <p class="col-xs-6 col-sm-4 col-md-3 col-lg-8">No.: </p>
+                            <input class="line-input col-xs-6 col-lg-4" ng-model="Detenidos[selected].numero"></input>
+                        </div>
+                        <div class="col-xs-11 col-lg-3">
+                            <p class="col-xs-6 col-sm-4 col-md-3 col-lg-8">Nombre: </p>
+                            <input class="line-input col-xs-6 col-lg-4" ng-model="Detenidos[selected].nombre"></input>
+                        </div>
+                    </div>
+                    <div class="row list-margin">
+                        <a ng-click="select($index)" ng-class="{itemActive: selected == $index}" class="item-div btn" ng-repeat="detenido in Detenidos">
+                            <button ng-click="remove($index)" class="close-btn btn"><span class="glyphicon glyphicon-remove"></span></button>
+                            <div class="persona-image-container"></div>
+                            <div>No.: {{detenido.numero}}</div>
+                            <div>Nombre: {{detenido.nombre}}</div>
+                        </a>
+                        <a ng-click="add()"  class="item-div btn">
+                            <span class="btn-plus glyphicon glyphicon-plus"></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

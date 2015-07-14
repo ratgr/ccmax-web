@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html ng-app="App">
+    <head>
+        <link rel="stylesheet" href="../lib/bootstrap/dist/css/bootstrap.css">
+        <link rel="stylesheet" href="../css/style.css">  
+        <link rel="stylesheet" href="../css/Lugar.css">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="../lib/angular/angular.min.js"></script>
+        <script src="../lib/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="indicios.js"></script>
+    </head>
+    
+     <body data-spy="scroll" data-target="#myScrollspy" >
+        <nav class="navbar navbar-fixed-top col-xs-3 col-md-2" id="myScrollspy">
+            <ul class="nav">
+                <li class="col-xs-12"><a href="#Fijacion" >Fijación</a></li>
+                <li class="col-xs-12"><a href="#Identificacion">Identificación</a></li>
+                <li class="col-xs-12"><a href="#Recolecion">Relección</a></li>
+            </ul>
+        </nav>
+          <div class="col-xs-9 col-lg-10 col-xs-offset-3 col-md-offset-2">
+            <div id="Fijacion" class="Segment">
+                <h2>Fijación</h2>
+                <div class="row">
+                    <span class="col-xs-6 col-sm-4 col-md-2 ">Fotográfica </span>
+                    <div class="col-xs-2 col-lg-1">
+                        <input type="radio">Si</input>
+                    </div>
+                    <div class="col-xs-2 col-lg-1">
+                        <input type="radio">No</input>
+                    </div>
+                </div> 
+                <div class="row">
+                    <span class="col-xs-6 col-sm-4 col-md-2">Videograbación </span>
+                    <div class="col-xs-2 col-lg-1">
+                        <input type="radio">Si</input>
+                    </div>
+                    <div class="col-xs-2 col-lg-1">
+                        <input type="radio">No</input>
+                    </div>
+                </div>
+                <div class="row">
+                    <span class="col-xs-6 col-sm-4 col-md-2">Planimetrica (planos)</span>
+                    <div class="col-xs-2 col-lg-1">
+                        <input type="radio">Si</input>
+                    </div>
+                    <div class="col-xs-2 col-lg-1">
+                        <input type="radio">No</input>
+                    </div>
+                </div>
+                <div class="row">
+                    <span class="col-xs-6 col-sm-4 col-md-2 ">Por escrito </span>
+                    <div class="col-xs-2 col-lg-1">
+                        <input type="radio">Si</input>
+                    </div>
+                    <div class="col-xs-2 col-lg-1">
+                        <input type="radio">No</input>
+                    </div>
+                </div>
+                <div class="row">
+                    <span class="col-xs-6 col-sm-4 col-md-2 ">Otros </span>
+                    <input class="line-input col-xs-4 col-sm-6 col-md-8" type="text">
+                </div>
+                <div class="row">
+                    <span class="col-xs-6">Observaciones</span>
+                    <input class="line-input fullInput" type="text">
+                 </div>
+            </div>
+            <div id="Identificacion" class="Segment">
+                <h2>Identificación</h2>
+                <div ng-controller="IndiciosControl">
+                 
+                    <div class="row">
+                        <div class="col-xs-11 col-lg-3">
+                            <p class="col-xs-6 col-sm-4 col-md-3 col-lg-8">No. de inidicio:</p>
+                            <input class="line-input col-xs-6 col-lg-4" ng-model="Indicios[selected].numero"></input>
+                        </div>
+                        <div class="col-xs-11 col-lg-9">
+                            <p class="col-xs-4 col-sm-3 col-lg-2" for="apellido">Descripción:</p>
+                            <input class="line-input col-xs-8 col-sm-9 "  ng-model="Indicios[selected].descripcion"></input>
+                        </div>
+                        <div class="col-xs-11">
+                            <p class="col-xs-3 col-lg-2">Estado:</p>
+                            <input class="line-input col-xs-9 col-md-9 col-lg-10" ng-model="Indicios[selected].estado"></input>
+                        </div>
+                    </div>
+                    <div class="row list-margin">
+                        <a ng-click="select($index)" ng-class="{itemActive: selected == $index}" class="item-div btn" ng-repeat="indicio in Indicios">
+                            <button ng-click="remove($index)" class="close-btn btn"><span class="glyphicon glyphicon-remove"></span></button>
+                            <div class="persona-image-container"></div>
+                            <div>No. de inidicio: {{indicio.numero}}</div>
+                            <div>Descripción: {{indicio.descripcion}}</div>
+                            <div>Estado: {{indicio.estado}}</div>
+                        </a>
+                        <a ng-click="add()"  class="item-div btn">
+                            <span class="btn-plus glyphicon glyphicon-plus"></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div id="Recolecion" class="Segment">
+                <h2>Recoleccion</h2>
+                <div class="row">
+                    <span class="col-xs-6">Descripción de la forma en que se realizó</span>
+                    <input class="line-input fullInput" type="text">
+                </div>
+                <div class="row">
+                    <span class="col-xs-6">Medidas tomadas para preservar la integridad del indicio o evidencia</span>
+                    <input class="line-input fullInput" type="text">
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

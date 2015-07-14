@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html ng-app="App">
+    <head>
+        <link rel="stylesheet" href="../lib/bootstrap/dist/css/bootstrap.css"> 
+        <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+        <link rel="stylesheet" href="../css/style.css">      
+        <link href="../css/Lugar.css"  rel="stylesheet">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+        <script src="https://maps.googleapis.com/maps/api/js"></script>
+        <script src="../lib/angular/angular.js"></script>
+        <script src="../lib/angular-route/angular-route.js"></script>
+        <script src="../lib/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="lugar.js"></script>
+    </head>
+    <body data-spy="scroll" data-target="#myScrollspy">
+        <nav class="navbar navbar-fixed-top col-xs-3 col-lg-2" id="myScrollspy">
+            <ul class="nav">
+                <li class="col-xs-12"><a href="#General">General</a></li>
+                <li class="col-xs-12"><a href="#Estado">Estado</a></li>
+                <li class="col-xs-12"><a href="#Victimas">Victimas</a></li>
+                <li class="col-xs-12"><a href="#Detenidos">Detenidos</a></li>
+                <li class="col-xs-12"><a href="#Testigos">Testigos</a></li>
+                <li class="col-xs-12"><a href="#Servidores">Servidores</a></li>
+                <li class="col-xs-12"><a href="#Vehiculos">Vehiculos</a></li>
+            </ul>
+        </nav>
+        <div class="col-xs-9 col-lg-10 col-lg-offset-2 col-xs-offset-3">
+            <div id="General" class="Segment">
+                <h2>General</h2>
+                <div  class="row Col">
+                    <span class="group">Calle: <input class="line-input calle-input" id="calle-in" type="text"></input></span>
+                    <span class="group">No Aprox: <input class="line-input callenum-input" id="numero-in" type="text"></input></span>
+                </div >  
+                <div  class="row Col">
+                    <span class="group">Colonia: <input class="line-input calle-input" id="colonia-in" type="text"></input></span>
+                    <span class="group">CodigoPostal: <input class="line-input callenum-input" id="zip-in" type="text"></input></span>
+                </div>
+                <div  class="row Col">
+                    <span class="group">Entre Calles: <input class="line-input calle-input" type="text"></input></span>
+                    <span class="group">y <input class="line-input calle-input" type="text"></input></span>
+                </div>
+            </div>
+            <div id="Estado" class="Segment">
+                <h2>Estado</h2>
+                <div class="row">
+                    <span class="col-xs-6 col-sm-4 col-md-2 ">Acordonamiento: </span>
+                    <div class="col-xs-2 col-lg-1">
+                        <input type="radio">Si</input>
+                    </div>
+                    <div class="col-xs-2 col-lg-1">
+                        <input type="radio">No</input>
+                    </div>
+                    <div class="col-xs-6">Observaciones: <input class="line-input din-input" type="text"></div>
+                </div> 
+                <div class="row">
+                    <span class="col-xs-6 col-sm-4 col-md-2">Fotografia o Video </span>
+                    <div class="col-xs-2 col-lg-1">
+                        <input type="radio">Si</input>
+                    </div>
+                    <div class="col-xs-2 col-lg-1">
+                        <input type="radio">No</input>
+                    </div>
+                    <div class="col-xs-6">Observaciones: <input class="line-input din-input" type="text"></div>
+                </div>
+                <div class="row">
+                    <span class="col-xs-6 col-sm-4 col-md-2 ">Alteracion del Lugar </span>
+                    <div class="col-xs-2 col-lg-1">
+                        <input type="radio">Si</input>
+                    </div>
+                    <div class="col-xs-2 col-lg-1">
+                        <input type="radio">No</input>
+                    </div>
+                    <div class="col-xs-6">Observaciones: <input class="line-input din-input" type="text"></div>
+                </div>
+                <div class="row">
+                    <span class="col-xs-6">Información Obtenida en el Lugar de los Hechos:</span>
+                    <input class="line-input fullInput" type="text">
+                 </div>
+            </div>
+            <div id="Victimas" class="Segment">
+                <h2>Victimas</h2>
+                <div ng-controller="VictimasControl">
+                    <div class="row">
+                        <div class="col-xs-11 col-md-6">
+                            <p class="col-xs-3 col-lg-2">Nombre:</p>
+                            <input class="line-input col-xs-9" ng-model="Victimas[selected].nombre"></input>
+                        </div>
+                        <div class="col-xs-11 col-md-6">
+                            <p class="col-xs-3 col-lg-2" for="apellido">Apellido:</p>
+                            <input class="line-input col-xs-9 "  ng-model="Victimas[selected].apellido"></input>
+                        </div>
+                        <div class="col-xs-6">
+                            <p class="col-xs-6 col-lg-2">Genero:</p>
+                            <select class="col-xs-6" ng-model = "Victimas[selected].genero">
+                                <option value="Hombre">Hombre</option>
+                                <option value="Mujer">Mujer</option>
+                            </select>
+                        </div>
+                        <div class="col-xs-6 col-lg-2">
+                            <p class="col-xs-6">Edad:</p> 
+                            <input class="line-input col-xs-5" type="number" ng-model="Victimas[selected].edad"></input>
+                        </div>
+                        <div class="col-xs-12">
+                            <p class="col-xs-4 col-sm-3 col-md-2">Observaciones: </p> 
+                            <input class="line-input col-xs-7 col-sm-8 col-md-9" ng-model="Victimas[selected].observaciones"></input>
+                        </div>
+                    </div>
+                    <div class="row list-margin">
+                        <a ng-click="select($index)" ng-class="{itemActive: selected == $index}" class="item-div btn" ng-repeat="victima in Victimas">
+                            <button ng-click="remove($index)" class="close-btn btn"><span class="glyphicon glyphicon-remove"></span></button>
+                            <div class="persona-image-container"></div>
+                            <div>Nombre: {{victima.nombre}}</div>
+                            <div>Apellido: {{victima.apellido}}</div>
+                            <div>Genero: {{victima.genero}}</div>
+                            <div>Edad: {{victima.edad}}</div>
+                            <div>Observaciones: {{victima.observaciones}}</div>
+                        </a>
+                        <a ng-click="add()"  class="item-div btn">
+                            <span class="btn-plus glyphicon glyphicon-plus"></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div id="Detenidos" class="Segment">
+                <h2>Detenidos</h2>
+                <div ng-controller="DetenidosControl">
+                    <div class="row">
+                        <div class="col-xs-11 col-md-6">
+                            <p class="col-xs-3 col-lg-2">Nombre:</p>
+                            <input class="line-input col-xs-9" ng-model="Detenidos[selected].nombre"></input>
+                        </div>
+                        <div class="col-xs-11 col-md-6">
+                            <p class="col-xs-3 col-lg-2" for="apellido">Apellido:</p>
+                            <input class="line-input col-xs-9 "  ng-model="Detenidos[selected].apellido"></input>
+                        </div>
+                        <div class="col-xs-6">
+                            <p class="col-xs-6 col-lg-2">Genero:</p>
+                            <select class="col-xs-6" ng-model = "Detenidos[selected].genero">
+                                <option value="Hombre">Hombre</option>
+                                <option value="Mujer">Mujer</option>
+                            </select>
+                        </div>
+                        <div class="col-xs-6 col-lg-2">
+                            <p class="col-xs-6">Edad:</p> 
+                            <input class="line-input col-xs-5" type="number" ng-model="Detenidos[selected].edad"></input>
+                        </div>
+                        <div class="col-xs-12">
+                            <p class="col-xs-4 col-sm-3 col-md-2">Observaciones: </p> 
+                            <input class="line-input col-xs-7 col-sm-8 col-md-9" ng-model="Detenidos[selected].observaciones"></input>
+                        </div>
+                    </div>
+                    <div class="row list-margin">
+                        <a ng-click="select($index)" ng-class="{itemActive: selected == $index}" class="item-div btn" ng-repeat="detenido in Detenidos">
+                            <button ng-click="remove($index)" class="close-btn btn"><span class="glyphicon glyphicon-remove"></span></button>
+                            <div class="persona-image-container"></div>
+                            <div>Nombre: {{detenido.nombre}}</div>
+                            <div>Apellido: {{detenido.apellido}}</div>
+                            <div>Genero: {{detenido.genero}}</div>
+                            <div>Edad: {{detenido.edad}}</div>
+                            <div>Observaciones: {{detenido.observaciones}}</div>
+                        </a>
+                        <a ng-click="add()"  class="item-div btn">
+                            <span class="btn-plus glyphicon glyphicon-plus"></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div id="Testigos" class="Segment">
+                <h2>Testigos</h2>
+                <div ng-controller="TestigosControl">
+                    <div class="row">
+                        <div class="col-xs-11 col-md-6">
+                            <p class="col-xs-3 col-lg-2">Nombre:</p>
+                            <input class="line-input col-xs-9" ng-model="Testigos[selected].nombre"></input>
+                        </div>
+                        <div class="col-xs-11 col-md-6">
+                            <p class="col-xs-3 col-lg-2" for="apellido">Apellido:</p>
+                            <input class="line-input col-xs-9 "  ng-model="Testigos[selected].apellido"></input>
+                        </div>
+                        <div class="col-xs-6">
+                            <p class="col-xs-6 col-lg-2">Genero:</p>
+                            <select class="col-xs-6" ng-model = "Testigos[selected].genero">
+                                <option value="Hombre">Hombre</option>
+                                <option value="Mujer">Mujer</option>
+                            </select>
+                        </div>
+                        <div class="col-xs-6 col-lg-2">
+                            <p class="col-xs-6">Edad:</p> 
+                            <input class="line-input col-xs-5" type="number" ng-model="Testigos[selected].edad"></input>
+                        </div>
+                        <div class="col-xs-12">
+                            <p class="col-xs-4 col-sm-3 col-md-2">Observaciones: </p> 
+                            <input class="line-input col-xs-7 col-sm-8 col-md-9" ng-model="Testigos[selected].observaciones"></input>
+                        </div>
+                    </div>
+                    <div class="row list-margin">
+                        <a ng-click="select($index)" ng-class="{itemActive: selected == $index}" class="item-div btn" ng-repeat="testigo in Testigos">
+                            <button ng-click="remove($index)" class="close-btn btn"><span class="glyphicon glyphicon-remove"></span></button>
+                            <div class="persona-image-container"></div>
+                            <div>Nombre: {{testigo.nombre}}</div>
+                            <div>Apellido: {{testigo.apellido}}</div>
+                            <div>Genero: {{testigo.genero}}</div>
+                            <div>Edad: {{testigo.edad}}</div>
+                            <div>Observaciones: {{testigo.observaciones}}</div>
+                        </a>
+                        <a ng-click="add()"  class="item-div btn">
+                            <span class="btn-plus glyphicon glyphicon-plus"></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div id="Servidores" class="Segment">
+                <h2>Servidores</h2>
+                <div ng-controller="ServidoresControl">
+                    <div class="row">
+                        <div class="col-xs-11 col-md-6">
+                            <p class="col-xs-3 col-lg-2">Nombre:</p>
+                            <input class="line-input col-xs-9" ng-model="Servidores[selected].nombre"></input>
+                        </div>
+                        <div class="col-xs-11 col-md-6">
+                            <p class="col-xs-3 col-lg-2" for="apellido">Apellido:</p>
+                            <input class="line-input col-xs-9 "  ng-model="Servidores[selected].apellido"></input>
+                        </div>
+                        <div class="col-xs-6">
+                            <p class="col-xs-6 col-lg-3">Responsabilidad:</p>
+                            <select  class="col-xs-6" ng-model = "Servidores[selected].responsabilidad">
+                                <option value="Recepción del lugar">Recepción del lugar</option>
+                                <option value="Preservación del lugar">Preservación del lugar</option>
+                                <option value="Entrega del lugar">Entrega del lugar</option>
+                                <option value="Otra">Otra</option>
+                            </select>
+                        </div>
+                        <div class="col-xs-6 ">
+                            <p class="col-xs-2">Cargo:</p> 
+                            <input class="line-input col-xs-5" ng-model="Servidores[selected].cargo"></input>
+                        </div>
+                        <div class="col-xs-12">
+                            <p class="col-xs-4 col-sm-3 col-md-2">Observaciones: </p> 
+                            <input class="line-input col-xs-7 col-sm-8 col-md-9" ng-model="Servidores[selected].observaciones"></input>
+                        </div>
+                    </div>
+                    <div class="row list-margin">
+                        <a ng-click="select($index)" ng-class="{itemActive: selected == $index}" class="item-div btn" ng-repeat="servidor in Servidores">
+                            <button ng-click="remove($index)" class="close-btn btn"><span class="glyphicon glyphicon-remove"></span></button>
+                            <div class="servidor-image-container"></div>
+                            <div>Nombre: {{servidor.nombre}}</div>
+                            <div>Apellido: {{servidor.apellido}}</div>
+                            <div>Cargo: {{servidor.cargo}}</div>
+                            <div>Responsabilidad: {{servidor.responsabilidad}}</div>
+                            <div>Observaciones: {{servidor.observaciones}}</div>
+                        </a>
+                        <a ng-click="add()"  class="item-div btn">
+                            <span class="btn-plus glyphicon glyphicon-plus"></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div id="Vehiculos" class="Segment">
+                <h2>Vehiculos</h2>
+                <div ng-controller="VehiculeControl">
+                    <div class="row">
+                        <div class="col-xs-11 col-md-6">
+                            <p class="col-xs-3 col-lg-2">Marca:</p>
+                            <input class="line-input col-xs-9" ng-model="Vehiculos[selected].marca"></input>
+                        </div>
+                        <div class="col-xs-11 col-md-6">
+                            <p class="col-xs-3 col-lg-2" for="apellido">Tipo:</p>
+                            <input class="line-input col-xs-9 "  ng-model="Vehiculos[selected].tipo"></input>
+                        </div>
+                        <div class="col-xs-6 col-md-4">
+                            <p class="col-xs-4 col-md-3 col-lg-2">Placa:</p>
+                            <input class="line-input col-xs-7 col-md-8 col-lg-9" ng-model="Vehiculos[selected].placa"></input>
+                        </div>
+                        <div class="col-xs-6 col-md-4">
+                            <p class="col-xs-4 col-sm-3 col-lg-2">Color:</p> 
+                            <input class="line-input col-xs-7 col-md-8 col-lg-9" ng-model="Vehiculos[selected].color"></input>
+                        </div>
+                        <div class="col-xs-6 col-md-4">
+                            <p class="col-xs-4 col-sm-3 col-lg-2">Año: </p> 
+                            <input class="line-input col-xs-7 col-md-8 col-lg-9" type="number" ng-model="Vehiculos[selected].ano"></input>
+                        </div>
+                    </div>
+                    <div class="row list-margin">
+                        <a ng-click="select($index)" ng-class="{itemActive: selected == $index}" class="item-div btn" ng-repeat="vehiculo in Vehiculos">
+                            <button ng-click="remove($index)" class="close-btn btn"><span class="glyphicon glyphicon-remove"></span></button>
+                            <div class="vehi-image-container"></div>
+                            <div>Marca: {{vehiculo.marca}}</div>
+                            <div>Tipo: {{vehiculo.tipo}}</div>
+                            <div>Color: {{vehiculo.color}}</div>
+                            <div>Año: {{vehiculo.ano}}</div>
+                            <div>Placa: {{vehiculo.placa}}</div>
+                        </a>
+                        <a ng-click="add()"  class="item-div btn">
+                            <span class="btn-plus glyphicon glyphicon-plus"></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </body>
+</html>

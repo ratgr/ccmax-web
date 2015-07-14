@@ -1,0 +1,48 @@
+
+.navbar .nav {
+    
+    margin-left: 5px;
+    width: 100%;
+    margin: 0;
+    display: table;
+    width: 100%;
+}
+
+.navbar .nav > li {
+    padding: 0;
+    margin: 0;
+    
+    border-bottom: #8d8d8d; 
+    border-bottom-width: 1px;
+    border-bottom-style: ridge;
+}
+
+
+.navbar .nav > li > a {
+    padding: 10px;
+    color: black;
+    
+    width: 100%;
+}
+
+.navbar .nav .nav > lia {
+    padding-left: 30px;
+}
+
+.active > a {
+
+    font-weight: bold;
+    border-left: #8d8d8d; 
+    border-left-width: 2px;
+    border-left-style: ridge; 
+    
+}
+
+/* hide inactive nested list */
+.navbar .nav ul.nav {
+   display: none;           
+}
+/* show active nested list */
+.navbar .nav>.active>ul.nav {
+    display:block
+}
